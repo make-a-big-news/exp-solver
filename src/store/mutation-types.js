@@ -2,5 +2,5 @@
  *  存放mutation名称常量
  */
 
-export const UPDATE_DATA = 'UPDATE_DATA';
-export const INIT_DEFAULT_DATA = 'INIT_DEFAULT_DATA';
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';

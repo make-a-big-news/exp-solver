@@ -1,286 +1,177 @@
 <template>
-    <div class="login-container">
-        <div class="bg"></div>
+    <div class="wrapper">
+        <keep-alive>
+            <transition>
+                <router-view></router-view>
+            </transition>
+        </keep-alive>
 
-        <div class="welcome">
+        <!-- 动画 -->
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
 
-            <h1>机场人流量时空分布大数据预测系统</h1>
-
-            <p>请先登录</p>
-
-            <div id="login" class="welcome-btn" @click="toggleLogin">Login</div>
-
-            <div id="register" class="welcome-btn" @click="toggleRegister">register</div>
-
-        </div>
-
-        <div class="login-box" :class="{showLayer:loginShow}">
-
-            <form class="form" id="login-form" method="post" action="">
-                <span class="return" @click="toggleLogin">Return</span>
-                <div class="form-group">
-                    <label for="login-id" class="col-sm-2 control-label">ID</label>
-                    <input id="login-id" type="text" autocomplete="off" spellcheck="false" name="id"
-                           class="form-control"
-                           placeholder="ID">
-                </div>
-                <div class="form-group">
-                    <label for="login-psw" class="col-sm-2 control-label">Password</label>
-                    <input id="login-psw" type="password" name="password" class="form-control" placeholder="Password">
-                </div>
-
-                <div class="form-group submit-ctn">
-                    <button type="submit" id="login-submit" class="welcome-btn" @click.prevent="login">login Now!
-                    </button>
-                </div>
-
-            </form>
-
-        </div>
-
-        <div class="register-box" :class="{showLayer:showRegister}">
-            <form class="form" name="register-form" id="register-form" method="post">
-                <span class="return" @click="toggleRegister">Return</span>
-
-                <div class="form-group">
-                    <label for="register-name" class="col-sm-2 control-label">Name</label>
-                    <input id="register-name" type="text" autocomplete="off" spellcheck="false" name="username"
-                           class="form-control" placeholder="name">
-                </div>
-                <div class="form-group">
-                    <label for="register-psw" class="col-sm-2 control-label">Password</label>
-                    <input id="register-psw" type="password" name="password" class="form-control"
-                           placeholder="Password">
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Sex</label>
-                    <div class="register-sex-box">
-                        <label class="radio-inline">
-                            <input type="radio" checked name="sex" value="b"> Boy
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" value="g"> Girl
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" value="x"> Secret
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group submit-ctn">
-                    <button type="submit" id="register-submit" class="welcome-btn" @click.prevent="register">
-                        Register Now!
-                    </button>
-                </div>
-
-            </form>
-        </div>
     </div>
+
 </template>
 
 <script>
     export default {
         name: 'login',
         data() {
-            return {
-                loginShow: false,
-                showRegister: false
-            }
+            return {}
         },
         methods: {
-            toggleLogin(){
-                this.loginShow = !this.loginShow;
-            },
-            login(){
-                this.$router.push('/main');
-                // TODO:登录
-            },
-            toggleRegister(){
-                this.showRegister = !this.showRegister;
-            },
-            register(){
-                // TODO:注册
-            }
-        },
-        mounted(){
-            // TODO: cookie逻辑
+
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    @import '~@/styles/common/variables.scss';
-
-    .showLayer {
-        width: 100vw !important;
-        height: 100vh !important;
-    }
-
-    .login-container {
-        overflow: hidden;
-        font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', "微软雅黑", STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+    .wrapper {
+        background: #50a3a2;
+        background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+        background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+        opacity: 0.8;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        margin: auto;
-        color: #fff;
-        -webkit-font-variant-ligatures: no-common-ligatures;
-        font-variant-ligatures: no-common-ligatures;
+        height: 100%;
+        overflow: hidden;
     }
 
-    .bg {
+    .bg-bubbles {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('~assets/img/bg.png');
-        background-size: cover;
-        filter: blur(10px);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
     }
 
-    .welcome {
+    .bg-bubbles li {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .welcome h1 {
-        margin-top: 20vh;
-        margin-bottom: 5vh;
-        font-weight: 500;
-        font-size: 28px;
-        text-indent: 5px;
-        letter-spacing: 5px;
-    }
-
-    .welcome p {
-        margin-bottom: 5vh;
-        text-indent: 5px;
-        letter-spacing: 5px;
-    }
-
-    .welcome-btn {
-        display: inline-block;
-        width: 100px;
+        list-style: none;
+        display: block;
+        width: 40px;
         height: 40px;
-        line-height: 40px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: .3s;
+        background-color: rgba(255, 255, 255, 0.15);
+        bottom: -160px;
+        -webkit-animation: square 25s infinite;
+        animation: square 25s infinite;
+        -webkit-transition-timing-function: linear;
+        transition-timing-function: linear;
     }
 
-    #login {
-        margin: 20px;
-        background: lighten($main-color, 17%);
+    .bg-bubbles li:nth-child(1) {
+        left: 10%;
     }
 
-    .welcome-btn:hover {
-        box-shadow: 0 0 10px 2px #ccc;
+    .bg-bubbles li:nth-child(2) {
+        left: 20%;
+        width: 80px;
+        height: 80px;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        -webkit-animation-duration: 17s;
+        animation-duration: 17s;
     }
 
-    #register {
-        margin: 20px;
-        background: #9cf;
+    .bg-bubbles li:nth-child(3) {
+        left: 25%;
+        -webkit-animation-delay: 4s;
+        animation-delay: 4s;
     }
 
-    .login-box, .register-box {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        width: 0;
-        height: 0;
-        background: rgba(0, 0, 0, .5);
-        z-index: 9;
-        overflow: hidden;
-        transition: width .3s, height .3s;
+    .bg-bubbles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        -webkit-animation-duration: 22s;
+        animation-duration: 22s;
+        background-color: rgba(255, 255, 255, 0.25);
     }
 
-    .form {
-        color: #000;
-        width: 40vw;
-        margin: 20vh auto;
-        background: rgb(255, 255, 255);
-        box-shadow: 0 0 10px 2px #ccc;
-        box-sizing: border-box;
-        border-radius: 5px;
-        padding: 20px;
+    .bg-bubbles li:nth-child(5) {
+        left: 70%;
     }
 
-    .return {
-        display: inline-block;
-        margin: 10px;
-        float: right;
-        transition: color .3s;
-        cursor: pointer;
+    .bg-bubbles li:nth-child(6) {
+        left: 80%;
+        width: 120px;
+        height: 120px;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+        background-color: rgba(255, 255, 255, 0.2);
     }
 
-    .return:hover {
-        color: #f66;
+    .bg-bubbles li:nth-child(7) {
+        left: 32%;
+        width: 160px;
+        height: 160px;
+        -webkit-animation-delay: 7s;
+        animation-delay: 7s;
     }
 
-    .form-group {
-        width: 100%;
-        margin: 20px 0;
-        font-size: 16px;
-        box-sizing: border-box;
-        clear: both;
+    .bg-bubbles li:nth-child(8) {
+        left: 55%;
+        width: 20px;
+        height: 20px;
+        -webkit-animation-delay: 15s;
+        animation-delay: 15s;
+        -webkit-animation-duration: 40s;
+        animation-duration: 40s;
     }
 
-    .form-group label {
-        display: inline-block;
-        width: 30%;
-        height: 30px;
-        line-height: 30px;
+    .bg-bubbles li:nth-child(9) {
+        left: 25%;
+        width: 10px;
+        height: 10px;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        -webkit-animation-duration: 40s;
+        animation-duration: 40s;
+        background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .form-control {
-        display: inline-block;
-        width: 65%;
-        height: 30px;
-        border: none;
-        border-bottom: 1px #000 solid;
-        background: none;
-        font-size: 16px;
+    .bg-bubbles li:nth-child(10) {
+        left: 90%;
+        width: 160px;
+        height: 160px;
+        -webkit-animation-delay: 11s;
+        animation-delay: 11s;
     }
 
-    .form-control:focus {
-        outline: none;
+    @-webkit-keyframes square {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        100% {
+            -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+        }
     }
 
-    .submit-ctn {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    #login-submit {
-        background: lighten($main-color, 17%);
-        border: none;
-        box-sizing: border-box;
-        color: #666;
-    }
-
-    #register-submit {
-        background: lighten($main-color, 17%);
-        border: none;
-        color: #fff;
-        box-sizing: border-box;
-    }
-
-    .register-sex-box {
-        display: inline-block;
-        width: 65%;
-        height: 30px;
-        border: none;
-        line-height: 30px;
-        background: none;
-        font-size: 16px;
+    @keyframes square {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        100% {
+            -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+        }
     }
 
 </style>
-

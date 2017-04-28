@@ -1,5 +1,5 @@
 <template>
-    <div class="modal" :class="{show:visible}">
+    <div class="modal" :class="{show:visible}" transition="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -11,6 +11,8 @@
                     <p>{{content}}</p>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" @click="close">{{closeTxt}}
+                    </button>
                     <button type="button" class="btn btn-primary" @click="positive">{{positiveTxt}}</button>
                 </div>
             </div>
@@ -41,6 +43,10 @@
                 type: Function,
                 default: function () {
                 }
+            },
+            closeTxt: {
+                type: String,
+                default: '取消'
             }
         },
         methods: {
@@ -56,10 +62,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .modal {
-        z-index: 999999999;
-    }
-
     .modal-dialog {
         position: absolute;
         top: 40%;
@@ -75,7 +77,7 @@
 
     .dialog-enter, .dialog-leave {
         opacity: 0;
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
 </style>
 
