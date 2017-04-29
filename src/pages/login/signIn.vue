@@ -5,7 +5,7 @@
                 <legend class="platform">EXP-SOLVER 登录</legend>
                 <div class="form-group">
                     <label for="UserName" class="col-md-2 control-label">用户名</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 ">
                         <input type="text" class="form-control" id="UserName" placeholder="用户名">
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
+                    <div class="btn1">
                         <a  class="btn btn-raised btn-primary" @click="signIn">登录</a>
                         <a  class="btn btn-raised btn-primary signStyle" @click="signUp">注册</a>
                     </div>
@@ -61,13 +61,26 @@
 </script>
 
 <style lang="scss" scoped>
+    //TODO: 屏幕宽度较小的时候不能滚动
+    .col-md-10{
+        float: right;
+        width: 83%;
+    }
+    .col-md-2{
+        padding-right: 0;
+    }
+    .btn1{
+        text-align: center;
+    }
     .well {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999;
+        /*min-width: 480px;*/
     }
+
 
     .platform {
         width: 440px;

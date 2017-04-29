@@ -96,7 +96,7 @@
                                 </ul>
                             </li>
                             <li v-else>
-                                <router-link to="/login">登录</router-link>
+                                <router-link to="/login" class="btn" data-toggle="dropdown">登录</router-link>
                             </li>
                         </ul>
                         <div class="slider shor slider-success"></div>
@@ -161,6 +161,11 @@
             &-brand {
                 font-size: 1.5em;
                 font-weight: 500;
+                line-height: 60px;
+                @media (max-width:757px ) {
+                    line-height: 30px;
+                }
+
             }
             &-collapse {
                 &[aria-expanded=true] {
@@ -171,6 +176,7 @@
                 .navbar-nav {
                     .spinner {
                         width: 20px;
+                        line-height: 50px;
                     }
                     .navbar-login {
                         &:first-child {
@@ -189,6 +195,7 @@
                             padding-left: 20px;
                             padding-right: 20px;
                             font-size: 16px;
+                            line-height: 50px;
                         }
                     }
                 }
@@ -201,6 +208,7 @@
         .dropdown-menu {
             a {
                 text-indent: 5px;
+                text-align: center;
                 &:hover{
                     color: #009688 !important;
                 }
@@ -223,4 +231,5 @@
     .fadein-enter-active {
         transition: all .6s ease-in-out;
     }
+
 </style>

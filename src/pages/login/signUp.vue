@@ -127,6 +127,13 @@
     /*.col-md-2 .control-label .versionCho {*/
         /*transition: all .4s;*/
     /*}*/
+    .col-md-10{
+              float: right;
+              width: 83%;
+          }
+    .col-md-2{
+        padding-right: 0;
+    }
 
     .radio {
         display: inline;
