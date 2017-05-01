@@ -13,7 +13,7 @@
                         </button>
                         <router-link to="/main" class="navbar-brand">EXP-SOLVER</router-link>
                     </div>
-                    <div class="navbar-collapse collapse navbar-responsive-collapse" :class="{active:isActive}">
+                    <div class="navbar-collapse collapse navbar-responsive-collapse" :class="{active:isCtrlBarActive}">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a class="btn" data-toggle="dropdown">仓储管理</a>
@@ -121,8 +121,7 @@
         components: {},
         data() {
             return {
-                isShow: true,
-                isActive: false
+                isCtrlBarActive: false
             }
         },
         computed: {
@@ -135,7 +134,7 @@
                 this.$auth.logout();
             },
             controlNavbar(){
-                this.isActive = !this.isActive;
+                this.isCtrlBarActive = !this.isCtrlBarActive;
             }
             //TODO: 当屏幕较小的时候，需要点击两下才出现下拉框
         },
