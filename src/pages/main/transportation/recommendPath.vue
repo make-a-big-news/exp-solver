@@ -65,4 +65,9 @@
         }
     }
 
+    @media (max-width: 508px){
+        .btn{
+            padding: 6px 12px;
+        }
+    }
 </style>

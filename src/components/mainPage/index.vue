@@ -31,13 +31,16 @@
         width: 100%;
         padding-top: 70px;
         .breadcrumb {
-            margin-bottom: 15px
+            margin: 34px 0 15px 0;
+            @media (max-width:757px ) {
+                margin: 0 0 15px 0;
+            }
         }
     }
 
     .well {
         background-color: #fff;
-        min-width: 520px;
+        /*min-width: 520px;*/
     }
 
 </style>

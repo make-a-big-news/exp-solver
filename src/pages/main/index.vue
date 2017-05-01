@@ -4,7 +4,7 @@
         <nav class="navbar-wrapper">
             <div class="navbar navbar-inverse">
                 <div class="container-fluid">
-                    <div class="navbar-header">
+                    <div class="navbar-header" @click="controlNavbar">
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
                                 data-target=".navbar-responsive-collapse">
                             <span class="icon-bar"></span>
@@ -13,12 +13,12 @@
                         </button>
                         <router-link to="/main" class="navbar-brand">EXP-SOLVER</router-link>
                     </div>
-                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <div class="navbar-collapse collapse navbar-responsive-collapse" :class="{active:isActive}">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a class="btn" data-toggle="dropdown">仓储管理</a>
-                                <ul class="dropdown-menu">
-                                    <li>
+                                <ul class="dropdown-menu" @click="controlNavbar">
+                                    <li >
                                         <router-link to="/main/goodsRecord">货物记录(免费)</router-link>
                                     </li>
                                     <li><a>压力预测(免费)</a></li>
@@ -31,7 +31,7 @@
                             </li>
                             <li>
                                 <a class="btn" data-toggle="dropdown">运输管理</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" @click="controlNavbar">
                                     <li>
                                         <router-link to="/main/transportRecord">运输记录(免费)</router-link>
                                     </li>
@@ -48,7 +48,7 @@
                             </li>
                             <li>
                                 <a class="btn" data-toggle="dropdown">共享用呗</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" @click="controlNavbar">
                                     <li>
                                         <router-link to="/main/rentIn">仓库租用(免费)</router-link>
                                     </li>
@@ -71,7 +71,7 @@
                             </li>
                             <li>
                                 <a class="btn" data-toggle="dropdown">韧曦金服</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" @click="controlNavbar">
                                     <li><a>尊贵VIP</a></li>
                                     <li><a>信用花呗</a></li>
                                     <li><a>提现转账</a></li>
@@ -87,7 +87,7 @@
 
                             <li v-if="hasLogin">
                                 <a class="btn" data-toggle="dropdown">账号设置</a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" @click="controlNavbar">
                                     <li><a>我的订单</a></li>
                                     <li><a>账户管理</a></li>
                                     <li><a>用户认证</a></li>
@@ -121,7 +121,8 @@
         components: {},
         data() {
             return {
-                isShow: true
+                isShow: true,
+                isActive: false
             }
         },
         computed: {
@@ -132,7 +133,11 @@
         methods: {
             logout(){
                 this.$auth.logout();
+            },
+            controlNavbar(){
+                this.isActive = !this.isActive;
             }
+            //TODO: 当屏幕较小的时候，需要点击两下才出现下拉框
         },
         mounted(){
             if (this.$auth.checkIfLoggedIn()) {
@@ -162,7 +167,7 @@
                 font-size: 1.5em;
                 font-weight: 500;
                 line-height: 60px;
-                @media (max-width:757px ) {
+                @media (max-width: 757px) {
                     line-height: 30px;
                 }
 
@@ -209,7 +214,7 @@
             a {
                 text-indent: 5px;
                 text-align: center;
-                &:hover{
+                &:hover {
                     color: #009688 !important;
                 }
             }
@@ -230,6 +235,12 @@
 
     .fadein-enter-active {
         transition: all .6s ease-in-out;
+    }
+
+    @media (max-width: 757px) {
+        .active {
+            display: none;
+        }
     }
 
 </style>
