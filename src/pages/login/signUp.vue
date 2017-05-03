@@ -101,6 +101,7 @@
         },
         methods: {
             signIn(){
+                this.$auth.login();
                 this.$router.push("/main");
             }
         }
@@ -114,10 +115,20 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999999;
+        @media (max-width: 620px) {
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+        }
     }
 
     .platform {
         width: 440px;
+        @media (max-width: 620px) {
+            color: #fff;
+            font-weight: 500;
+
+        }
     }
 
     .form-group {
@@ -132,7 +143,11 @@
               width: 83%;
           }
     .col-md-2{
-        padding-right: 0;
+        @media (max-width: 620px) {
+            padding: 0 0 0 14px;
+        }
+
+        /*padding-right: 0;*/
     }
 
     .radio {
@@ -152,6 +167,31 @@
             padding-top: 0px;
         }
     }
+    @media (max-width: 620px) {
+        .form-control, .form-group .form-control {
+            color: #fff;
+        }
+        .form-control::-webkit-input-placeholder, .form-group .form-control::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, .84);
+        }
+        .form-control, .form-group .form-control {
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d2d2d2));
+        }
+        .form-group label.control-label {
+            color: rgba(255, 255, 255, .84);
+        }
+        .form-group.is-focused .radio label:hover{
+            color: rgba(255, 255, 255, .84);
+        }
+        .form-group .radio label, .form-group label{
+            color: rgba(255, 255, 255, .84);
+        }
+    }
+    /*.form-group.is-focused .radio label{*/
+        /*color: rgba(255, 255, 255, .84);*/
+    /*!*}*!*/
+
+
 
 
 </style>

@@ -40,11 +40,11 @@ import globalConfig from '@/utils/globalConfig';
 import dialog from '@/utils/dialog';
 import FastClick from 'fastclick'
 
-if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
-}
+// if ('addEventListener' in document) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         FastClick.attach(document.body);
+//     }, false);
+// }
 
 // 全局配置 && 插件
 Vue.use(globalConfig);

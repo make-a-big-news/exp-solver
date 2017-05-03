@@ -18,8 +18,8 @@
                 </div>
                 <div class="form-group">
                     <div class="btn1">
-                        <a  class="btn btn-raised btn-primary" @click="signIn">登录</a>
-                        <a  class="btn btn-raised btn-primary signStyle" @click="signUp">注册</a>
+                        <a class="btn btn-raised btn-primary" @click="signIn">登录</a>
+                        <a class="btn btn-raised btn-primary signStyle" @click="signUp">注册</a>
                     </div>
                 </div>
             </fieldset>
@@ -32,7 +32,6 @@
             <!--<img src="~assets/img/introduction.png" style="width: 30px">-->
         </div>
     </div>
-
 </template>
 
 <script>
@@ -46,9 +45,11 @@
         },
         methods: {
             signIn(){
-                this.$auth.login();
-                this.$router.push("/main");
-
+                this.$API.login().then((rsp) => {
+                    console.log(rsp.data);
+                })
+//                this.$auth.login();
+//                this.$router.push("/main");
             },
             signUp(){
                 this.$router.push("/login/signUp");
@@ -62,59 +63,90 @@
 
 <style lang="scss" scoped>
     //TODO: 屏幕宽度较小的时候不能滚动
-    .col-md-10{
+    .col-md-10 {
         float: right;
         width: 83%;
     }
-    .col-md-2{
+
+    .col-md-2 {
         padding-right: 0;
     }
-    .btn1{
+
+    .btn1 {
         text-align: center;
     }
+
     .well {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999;
-        /*min-width: 480px;*/
-    }
+        @media (max-width: 620px) {
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+        }
 
+        min-width: 320px; //TODO :当宽度小于320时，无法移动
+    }
 
     .platform {
         width: 440px;
+        @media (max-width: 620px) {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 70px;
+        }
+
     }
-    .codeScan{
+
+    .codeScan {
         text-align: center;
-        margin-top: 30px;
-        span{
+        @media (max-width: 620px) {
+            margin-top: 130px;
+        }
+        span {
             display: inline-block;
-            width: 90px;
+            width: 80px;
             padding-top: 64px;
-
         }
-        .a{
+        .a {
             background: url("~assets/img/introduction.png") no-repeat 18px 0px;
-            background-size:60%;
-
+            background-size: 60%;
         }
-        .b{
+        .b {
             background: url("~assets/img/instruction.png") no-repeat 18px 0px;
-            background-size:60%;
-
+            background-size: 60%;
         }
-        .c{
+        .c {
             background: url("~assets/img/interconnection.png") no-repeat 18px 0px;
-            background-size:60%;
-
+            background-size: 60%;
         }
-        .d{
+        .d {
             background: url("~assets/img/goldDress.png") no-repeat 18px 0px;
-            background-size:60%;
+            background-size: 60%;
         }
     }
-    .signStyle{
-        margin-left: 100px;
+
+    .signStyle {
+        margin-left: 60px;
     }
+
+    @media (max-width: 620px) {
+        .form-control, .form-group .form-control {
+            color: #fff;
+        }
+        .form-control::-webkit-input-placeholder, .form-group .form-control::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, .84);
+        }
+        .form-control, .form-group .form-control {
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d2d2d2));
+        }
+        .form-group label.control-label {
+            color: rgba(255, 255, 255, .84);
+        }
+    }
+
+
 </style>

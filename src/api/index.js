@@ -30,5 +30,8 @@ export default {
     },
     path_recommend: (params) => {
         return axios.get(apiList.path_recommend, { params: params })
+    },
+    login: (params) => {
+        return axios.post(apiList.login, { params: params });
     }
 }

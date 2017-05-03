@@ -24,7 +24,7 @@ export default function () {
         if_matched: 1,
         matched_pairs: ['xx', 'yy'],
         amount: '40'
-    })
+    });
     // 获取匹配结果
     mock.onGet(apiList.get_matched_storerecords, {
         params: {
@@ -38,7 +38,7 @@ export default function () {
         if_matched: 1,
         matched_pairs: ['xx', 'yy'],
         amount: '40'
-    })
+    });
     // 发布车辆信息
     mock.onPost(apiList.match_vehicle, {
         params: {
@@ -69,7 +69,11 @@ export default function () {
         }
     }).reply(200, {
         results: 'V0 --> V1 --> V3 --> V5 --> V7'
-    })
+    });
+    // 登录
+    mock.onPost(apiList.login).reply(200, {
+        status: 1
+    });
 
 
 }

@@ -173,5 +173,4 @@
             transform: translateY(-700px) rotate(600deg);
         }
     }
-
 </style>
