@@ -51,9 +51,11 @@
     .carousel-container {
         transition: none !important; /*去除组件加载过度*/
         height: 100%;
+        overflow: hidden;
         .carousel,
         .carousel-inner,
         .item {
+            width: 1500px;
             height: 100%;
         }
         .carousel-indicators {

@@ -1,8 +1,8 @@
 /**
  * 开发环境和线上环境分别配置
  *
- * baseUrl: 域名地址
- * imgBaseUrl: 图片所在域名地址
+ * domain: 域名
+ * baseUrl: url
  *
  */
 let domain;
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'development') {
     domain = 'exp-solver.alexxd.com';
 }
 
-baseUrl = `http://${domain}`;
+baseUrl = `https://${domain}`;
 
 export {
     domain,

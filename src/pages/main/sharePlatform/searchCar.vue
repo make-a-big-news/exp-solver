@@ -83,7 +83,6 @@
                         this.$showDialog({
                             title: '成功',
                             content: '您的信息已提交，是否跳转至运输管理页面？',
-                            close: '取消',
                             onPositive: function () {
                                 _this.$router.push('/main/transportRecord')
                             }
