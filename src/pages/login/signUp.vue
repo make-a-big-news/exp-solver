@@ -6,13 +6,13 @@
                 <div class="form-group">
                     <label for="UserName" class="col-md-2 control-label">用户名</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="UserName" placeholder="用户名">
+                        <input type="text" class="form-control" id="UserName" placeholder="用户名" v-model.trim="userName">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputidCard" class="col-md-2 control-label">证件号码</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputidCard" placeholder="证件号码">
+                        <input type="text" class="form-control" id="inputidCard" placeholder="证件号码" v-model.trim="idNum">
                     </div>
                 </div>
                 <div class="form-group">
@@ -20,54 +20,48 @@
                     <div class="col-md-10">
                         <div class="radio ">
                             <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" >
                                 个人
                             </label>
                         </div>
                         <div class="radio ">
                             <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" >
                                 企业
                             </label>
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="inputphoneNum" class="col-md-2 control-label">手机号码</label>
-
                     <div class="col-md-10">
-                        <input type="number" class="form-control" id="inputphoneNum" placeholder="手机号码">
+                        <input type="number" class="form-control" id="inputphoneNum" placeholder="手机号码" v-model.trim="phoneNum">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputemail" class="col-md-2 control-label">邮箱设置</label>
-
                     <div class="col-md-10">
-                        <input type="email" class="form-control" id="inputemail" placeholder="邮箱设置">
+                        <input type="email" class="form-control" id="inputemail" placeholder="邮箱设置" v-model.trim="email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-md-2 control-label">密码</label>
-
                     <div class="col-md-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="密码">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="密码" v-model.trim="password">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="inputaccount" class="col-md-2 control-label">银行账户</label>
                     <div class="col-md-10">
-                        <input type="number" class="form-control" id="inputaccount" placeholder="银行账户">
+                        <input type="number" class="form-control" id="inputaccount" placeholder="银行账户" v-model.trim="account">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="col-md-2 control-label versionCho">版本选择</label>
                     <div class="col-md-10">
                         <div class="radio ">
                             <label>
-                                <input type="radio" name="optionsRadio" id="optionsRadio1" value="option1" checked="">
+                                <input type="radio" name="optionsRadio" id="optionsRadio1" value="option1" checked="" >
                                 免费共享版
                             </label>
                         </div>
@@ -82,9 +76,8 @@
 
                 <div class="form-group signIn">
                     <div>
-                        <a  class="btn btn-raised btn-primary" @click="signIn">注册</a>
+                        <a class="btn btn-raised btn-primary" @click="signIn">注册</a>
 
-                        <!--<button type="button" class="btn btn-default" @click="signIn">登录</button>-->
                     </div>
                 </div>
 
@@ -97,7 +90,14 @@
     export default {
         name: 'signUp',
         data() {
-            return {}
+            return {
+                userName:'',
+                idNum:'',
+                phoneNum:'',
+                email:'',
+                password:'',
+                account:''
+            }
         },
         methods: {
             signIn(){
@@ -127,7 +127,6 @@
         @media (max-width: 620px) {
             color: #fff;
             font-weight: 500;
-
         }
     }
 
@@ -136,13 +135,14 @@
     }
 
     /*.col-md-2 .control-label .versionCho {*/
-        /*transition: all .4s;*/
+    /*transition: all .4s;*/
     /*}*/
-    .col-md-10{
-              float: right;
-              width: 83%;
-          }
-    .col-md-2{
+    .col-md-10 {
+        float: right;
+        width: 83%;
+    }
+
+    .col-md-2 {
         @media (max-width: 620px) {
             padding: 0 0 0 14px;
         }
@@ -162,11 +162,12 @@
         text-align: center;
     }
 
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
         .form-horizontal .control-label {
             padding-top: 0px;
         }
     }
+
     @media (max-width: 620px) {
         .form-control, .form-group .form-control {
             color: #fff;
@@ -180,18 +181,17 @@
         .form-group label.control-label {
             color: rgba(255, 255, 255, .84);
         }
-        .form-group.is-focused .radio label:hover{
+        .form-group.is-focused .radio label:hover {
             color: rgba(255, 255, 255, .84);
         }
-        .form-group .radio label, .form-group label{
+        .form-group .radio label, .form-group label {
             color: rgba(255, 255, 255, .84);
         }
     }
+
     /*.form-group.is-focused .radio label{*/
-        /*color: rgba(255, 255, 255, .84);*/
+    /*color: rgba(255, 255, 255, .84);*/
     /*!*}*!*/
-
-
 
 
 </style>

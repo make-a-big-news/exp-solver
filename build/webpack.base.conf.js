@@ -1,5 +1,6 @@
 var path = require('path')
 var utils = require('./utils')
+// var webpack = require('webpack')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
@@ -23,9 +24,16 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
-            'assets': resolve('src/assets')
+            'assets': resolve('src/assets'),
+            // 'jquery':resolve('static/vendor/jquery-1.9.1.min')
         }
     },
+    // plugins: [
+    //     new webpack.ProvidePlugin({
+    //         $: "jquery",
+    //         jQuery: "jquery"
+    //     })
+    // ],
     module: {
         rules: [
             {

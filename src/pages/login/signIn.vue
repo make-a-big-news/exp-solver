@@ -6,14 +6,14 @@
                 <div class="form-group">
                     <label for="UserName" class="col-md-2 control-label">用户名</label>
                     <div class="col-md-10 ">
-                        <input type="text" class="form-control" id="UserName" placeholder="用户名">
+                        <input type="text" class="form-control" id="UserName" placeholder="用户名" v-model.trim="userName">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-md-2 control-label">密码</label>
 
                     <div class="col-md-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="密码">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="密码" v-model.trim="passWord">
                     </div>
                 </div>
                 <div class="form-group">
@@ -35,28 +35,36 @@
 </template>
 
 <script>
-
     export default {
         name: 'signIn',
         data() {
             return {
-                showError: false,
+                userName:'',
+                passWord:''
+            }
+        },
+        computed:{
+            params(){
+                return {
+                    userName:this.userName,
+                    passWord:this.passWord
+                }
             }
         },
         methods: {
             signIn(){
-                this.$API.login().then((rsp) => {
-                    console.log(rsp.data);
+                this.$API.login(this.params).then((rsp) => {
+                    this.$auth.login();
+                    this.$router.push("/main");
+                }).catch((e)=>{
+                    alert("账号密码错误，请重新输入");
                 })
-//                this.$auth.login();
-//                this.$router.push("/main");
+
             },
             signUp(){
                 this.$router.push("/login/signUp");
             },
-            closeError(){
-                this.showError = false;
-            }
+
         }
     }
 </script>

@@ -5,19 +5,23 @@
  */
 
 import dialog from '@/components/dialog';
-
+// Vue作为全局变量时自动安装
 if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(plugin)
 }
 
-export default function plugin(Vue) { // TODO: 有Vue参数？
-    if (plugin.installed) {//？有这个判断，plugin.installed是什么
+// 避免重复安装
+plugin.installed = false;
+export default function plugin(Vue) {
+    if (plugin.installed) {
         return
     }
-    let component = Vue.extend(dialog);//extend?
+    // 创建一个子类挂载在div上
+    let component = Vue.extend(dialog);
     let vm = new component({ el: document.createElement('div') });
-    document.body.appendChild(vm.$el);//???vm.$el
-                            // 为啥有"="
+    // 添加到body尾部
+    document.body.appendChild(vm.$el);
+    // 为啥有"="
     function showDialog({ title = '提示', content = '', positiveTxt = '确定', closeTxt = '', onPositive }) {
         vm.title = title;
         vm.content = content;
@@ -35,4 +39,7 @@ export default function plugin(Vue) { // TODO: 有Vue参数？
     }, false);
 
     Vue.prototype.$showDialog = showDialog;
+    plugin.installed = true;
 }
+
+

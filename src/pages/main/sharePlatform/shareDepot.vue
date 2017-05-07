@@ -1,7 +1,7 @@
 <template>
     <mainPage>
         <template slot="breadcrumb">
-            <li class="active">仓储租用</li>
+            <li class="active">共享拼仓</li>
         </template>
 
         <template slot="main">
@@ -13,12 +13,12 @@
                 </div>
                 <div class="form-group label-floating">
                     <label class="control-label" for="focusedInput2">存储货物总量</label>
-                    <input class="form-control" id="focusedInput2" type="text">
-                    <p class="help-block">请输入您预计存储的货物量</p>
+                    <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10" >
+                    <p class="help-block">请输入您预计存储的货物量(10~90)</p>
                 </div>
                 <div class="form-group label-floating">
                     <label class="control-label" for="focusedInput3">起始时间</label>
-                    <input class="form-control" id="focusedInput3" type="text">
+                    <input class="form-control" id="focusedInput3" type="time">
                     <p class="help-block">请输入您预计租用的起始时间</p>
                 </div>
                 <div class="form-group label-floating">

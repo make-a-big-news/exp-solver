@@ -45,10 +45,10 @@ import FastClick from 'fastclick'
 //         FastClick.attach(document.body);
 //     }, false);
 // }
-
 // 全局配置 && 插件
 Vue.use(globalConfig);
 Vue.use(dialog);
+
 
 /* eslint-disable no-new */
 new Vue({

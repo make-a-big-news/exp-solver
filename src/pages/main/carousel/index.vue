@@ -1,7 +1,7 @@
 <template>
     <div class="carousel-container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" >
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -17,13 +17,13 @@
                     <img src="~assets/img/global.jpg">
                 </div>
             </div>
-            <a class="carousel-control left" href="#myCarousel"
-               data-slide="prev">
-            </a>
-            <a class="carousel-control right" href="#myCarousel"
-               data-slide="next">
-            </a>
         </div>
+        <a class="carousel-control left" href="#myCarousel"
+           data-slide="prev">
+        </a>
+        <a class="carousel-control right" href="#myCarousel"
+           data-slide="next">
+        </a>
         <section class="footer">
             <div class="foot-tips">
                 <h2>{{footTips}}</h2>
@@ -51,11 +51,12 @@
     .carousel-container {
         transition: none !important; /*去除组件加载过度*/
         height: 100%;
-        overflow: hidden;
+        /*overflow: hidden;*/
         .carousel,
         .carousel-inner,
         .item {
-            width: 1500px;
+            /*width: 1500px;*/
+            width: 100%;
             height: 100%;
         }
         .carousel-indicators {
@@ -65,8 +66,10 @@
             bottom: 60px;
         }
         .item img {
+
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
         .carousel-control {
             &.right {
@@ -77,6 +80,24 @@
             }
         }
     }
+    /*.carousel-indicators{
+        position: absolute;
+        background: red;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 10%;
+        /*width: 100%;*/
+
+    /*}*/
+    .carousel-inner{
+        overflow: hidden;
+        width: 100%;
+        max-width: 2000px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
 
     .footer {
         height: 60px;

@@ -23,6 +23,7 @@
 <script>
     export default {
         name: 'dialog',
+//        props验证
         props: {
             visible: {
                 type: Boolean

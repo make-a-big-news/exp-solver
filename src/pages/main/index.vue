@@ -4,9 +4,9 @@
         <nav class="navbar-wrapper">
             <div class="navbar navbar-inverse">
                 <div class="container-fluid">
-                    <div class="navbar-header" @click="controlNavbar" >
+                    <div class="navbar-header" @click="controlNavbar">
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-responsive-collapse" >
+                                data-target=".navbar-responsive-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -49,18 +49,6 @@
                             <li>
                                 <a class="btn" data-toggle="dropdown">共享用呗</a>
                                 <ul class="dropdown-menu" @click="controlNavbar">
-                                    <li>
-                                        <router-link to="/main/rentIn">仓库租用(免费)</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/main/rentOut">仓库出租(免费)</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/main/searchCar">货主寻车(免费)</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/main/searchGoods">车主寻货(免费)</router-link>
-                                    </li>
                                     <li>
                                         <router-link to="/main/shareDepot">共享拼仓(免费)</router-link>
                                     </li>
@@ -138,7 +126,6 @@
             controlNavbar(){
                 this.isCtrlBarActive = !this.isCtrlBarActive;
             }
-            //TODO: 当屏幕较小的时候，需要点击两下才出现下拉框
         },
         mounted(){
             if (this.$auth.checkIfLoggedIn()) {
@@ -167,11 +154,11 @@
             &-brand {
                 font-size: 1.6em;
                 font-weight: 500;
-                line-height: 60px;
+                line-height: 50px;
                 height: 100%;
-                @media (max-width: 757px) {
-                    line-height: 30px;
-                }
+                /*@media (max-width: 757px) {*/
+                /*line-height: 30px;*/
+                /*}*/
 
             }
             &-collapse {
@@ -195,10 +182,9 @@
                     @media (min-width: 768px) {
                         float: right;
                         > li > a {
-                            padding-left: 20px;
-                            padding-right: 20px;
+                            padding: 0 20px 0 20px;
                             font-size: 16px;
-                            line-height: 50px;
+                            line-height: 80px;
                         }
                     }
                 }
