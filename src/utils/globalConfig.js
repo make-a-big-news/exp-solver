@@ -1,7 +1,6 @@
 /**
  * 全局配置
  */
-import API from '@/api';
 import constant from './constants';
 import $ from 'jquery';
 import {unixToTime} from './formateDate';
@@ -10,9 +9,6 @@ import cookies from 'js-cookie';
 import auth from './auth';
 
 export default function plugin(Vue) {
-  // api 全局注入
-  Vue.prototype.$API = API;
-
   // 业务常量全局注入
   Vue.prototype.$const = constant;
 
