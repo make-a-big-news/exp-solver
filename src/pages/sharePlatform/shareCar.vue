@@ -14,7 +14,7 @@
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput3">货物量</label>
-          <input class="form-control" id="focusedInput3" type="text" v-model.lazy.trim="input.quantity">
+          <input class="form-control" id="focusedInput3" type="number" min="10" max="90" step="10" v-model.lazy.trim="input.quantity">
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput4">发货日期</label>

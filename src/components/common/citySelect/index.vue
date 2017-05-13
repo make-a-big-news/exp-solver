@@ -8,10 +8,10 @@
       <option value="">选择城市</option>
       <option v-for="city in cities" :value="city[valueType]">{{city.name}}</option>
     </select>
-    <select v-model="district" :class="selectClass">
-      <option value="">选择县/区</option>
-      <option v-for="district in districts" :value="district[valueType]">{{district.name}}</option>
-    </select>
+    <!--<select v-model="district" :class="selectClass">-->
+      <!--<option value="">选择县/区</option>-->
+      <!--<option v-for="district in districts" :value="district[valueType]">{{district.name}}</option>-->
+    <!--</select>-->
     <slot></slot>
   </div>
 </template>
@@ -27,9 +27,6 @@
       initCity: {
         default: ''
       },
-      initDistrict: {
-        default: ''
-      },
       selectClass: {
         type: String,
         default: ''
@@ -43,13 +40,13 @@
       return {
         province: this.initProvince,
         city: this.initCity,
-        district: this.initDistrict,
+//        district: this.initDistrict,
         oldProvince: '',
         oldCity: '',
-        oldDistrict: '',
+//        oldDistrict: '',
         provinces: [],
         cities: [],
-        districts: []
+//        districts: []
       }
     },
     mounted(){

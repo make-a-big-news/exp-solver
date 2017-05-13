@@ -18,11 +18,10 @@
                     <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10" v-model.lazy.trim="input.quantity">
                     <p class="help-block">请输入您预计存储的货物量(10~90)</p>
                 </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput3">起始时间</label>
-                    <input class="form-control" id="focusedInput3" type="time">
-                    <p class="help-block">请输入您预计租用的起始时间</p>
-                </div>
+              <div class="form-group label-floating">
+                <label class="control-label" for="focusedInput3">发货具体时间</label>
+                <input class="form-control" id="focusedInput3" type="time" v-model.lazy.trim="input.time">
+              </div>
                 <div class="form-group label-floating">
                     <label class="control-label" for="focusedInput4">仓储租用时间</label>
                     <input class="form-control" id="focusedInput4" type="text">
