@@ -7,13 +7,14 @@
     "scripts": {
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
+        "analyz": "NODE_ENV=production npm_config_report=true npm run build",
         "dist": "sh distribute.sh",
         "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
         "e2e": "node test/e2e/runner.js",
         "api": "node test/api/index.js",
         "test": "npm run unit && npm run e2e",
         "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-        "init": "./node_modules/.bin/commitizen init cz-conventional-changelog --save-dev --save-exact",
+        "init": "./node_modules/.bin/commitizen init cz-conventional-changelog --save-dev --save-exact --force",
         "commit": "git-cz"
     },
     "dependencies": {

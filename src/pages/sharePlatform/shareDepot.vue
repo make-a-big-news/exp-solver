@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group label-floating">
                     <label class="control-label" for="focusedInput2">存储货物总量</label>
-                    <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10" >
+                    <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10" v-model.lazy.trim="input.quantity">
                     <p class="help-block">请输入您预计存储的货物量(10~90)</p>
                 </div>
                 <div class="form-group label-floating">
@@ -47,21 +47,56 @@
     import topMenu from '@/components/topMenu'
 
     export default {
-        name: 'rentIn',
-        components: {
-            mainPage,
-            topMenu
-        },
-        data() {
-            return {
-            }
-        },
-        methods: {
-            submit(){
-
-            }
+      name: 'searchDepot',
+      components: {
+        mainPage,
+        topMenu
+      },
+      data() {
+        return {
+          input: {
+            quantity: '',
+            date: '',
+            time: '',
+            duration: '',
+            if_vehicle: ''
+          },
         }
+      },
+      computed: {
+        params(){
+          return {
+            number_code: 1,
+            quantity: this.input.quantity,
+            start_time: `${this.input.date.replace(/-/g, '/')} ${this.input.time}:00`,
+            duration: this.input.duration,
+            if_vehicle: Number(this.input.if_vehicle)
+          }
+        }
+      },
+      methods: {
+        submit(){
+          const _this = this;
+          this.$API.match_vehicle(this.params).then((rsp) => {
+            this.$showDialog({
+              title: '成功',
+              content: '您的信息已提交，是否跳转至运输管理页面？',
+              close: '取消',
+              onPositive: function () {
+                _this.$router.push('/goodsRecord')
+              }
+            })
+          }).catch((e) => {
+            this.$showDialog({
+              title: '出错了',
+              content: e.response.status
+            })
+          })
+        }
+      }
+
     }
+
 
     //TODO: post /match_storehouse
 </script>

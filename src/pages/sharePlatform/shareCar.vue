@@ -9,7 +9,7 @@
     <template slot="main">
       <div class="container">
         <div class="form-group label-floating">
-          <label class="control-label">运输目的地</label>
+          <h4>运输目的地</h4>
           <citySelect ></citySelect>
         </div>
         <div class="form-group label-floating">
@@ -85,7 +85,7 @@
             content: '您的信息已提交，是否跳转至运输管理页面？',
             close: '取消',
             onPositive: function () {
-              _this.$router.push('/main/goodsRecord')
+              _this.$router.push('/goodsRecord')
             }
           })
         }).catch((e) => {

@@ -58,58 +58,87 @@
 ## 项目结构
 ```
 .
-├── LICENSE     
+├── LICENSE
 ├── README.md
-├── build               构建配置
-│   ├── webpack.base.conf.js
-│   ├── webpack.dev.conf.js
-│   └── webpack.prod.conf.js
-├── data                本地数据
-│   ├── data_1.json
-│   ├── ...
-│   └── data_90.json
-├── dist                打包发布
-├── package.json        依赖说明
-├── postcss.config.js   postcss配置
-├── src                 源文件目录
-│   ├── api             数据接口封装
-│   │   └── index.js
-│   ├── components      组件
-│   │   └── ProgressBar.vue
-│   ├── image           全局通用图片
-│   │   ├── 3d.jpg
-│   │   └── global.jpg
-│   ├── modules         业务模块
-│   │   └── common      通用基础模块（每个页面自动导入）
-│   ├── pages           页面文件夹
-│   │   ├── index       Landing页
-│   │   │   ├── index.html
-│   │   │   └── index.js
-│   │   └── main        主页面
-│   │       ├── index.html
-│   │       ├── index.js    入口文件
-│   │       ├── js          一些业务逻辑封装
-│   │       │   ├── chart.js    echarts
-│   │       │   └── heatmap     热图封装
-│   │       │       ├── index.js
-│   │       │       └── tooltips.js
-│   │       └── view            视图
-│   │           ├── App.vue     根组件
-│   │           ├── ctrl-panel  控制面板组件
-│   │           │   ├── img
-│   │           │   │   └── baiyun-demo.png
+├── build   // webpack构建基本配置
+├── config  // webpack构建自定义配置
+├── distribute.sh   // 一件打包发布至服务器脚本
+├── favicon.ico
+├── index.html
+├── package.json
+├── screenShots
+├── src
+│   ├── App.vue     // 根组件
+│   ├── api         // 数据ORM
+│   │   ├── apiList.js  // API清单
+│   │   ├── index.js
+│   │   └── mock        // 模拟数据
+│   │       └── index.js
+│   ├── assets          // 静态资源（被打包的）
+│   ├── components      // 通用组件
+│   │   ├── dialog // 弹窗组件
+│   │   │   └── index.vue
+│   │   └── mainPage // 页面通用模板
+│   │       └── index.vue
+│   ├── config      // 分别配置开发环境和发布环境变量
+│   ├── main.js     // 入口文件
+│   ├── pages       // 页面划分
+│   │   ├── login   // 登录页
+│   │   │   ├── index.vue
+│   │   │   ├── signIn.vue
+│   │   │   └── signUp.vue
+│   │   └── main    // 主页
+│   │       ├── carousel    // 轮播组件
+│   │       │   └── index.vue
+│   │       ├── index.vue   // 主页入口组件
+│   │       ├── sharePlatform   // 共享平台
+│   │       │   ├── rentIn.vue
+│   │       │   ├── rentOut.vue
+│   │       │   ├── searchCar.vue
+│   │       │   ├── searchGoods.vue
+│   │       │   ├── shareCar.vue
+│   │       │   └── shareDepot.vue
+│   │       ├── transportation  // 运输
+│   │       │   ├── cBusiness.vue
+│   │       │   ├── cBusinessDetail
+│   │       │   │   └── index.vue
+│   │       │   ├── recommendPath.vue
+│   │       │   ├── transportDetail
+│   │       │   │   └── index.vue
+│   │       │   └── transportRecord.vue
+│   │       └── wareHouse   // 仓储
+│   │           ├── constructionPlan.vue
+│   │           ├── goodsDetail
 │   │           │   └── index.vue
-│   │           └── heat-map    热图组件
-│   │               └── index.vue
-│   ├── store                   状态管理
-│   │   ├── index.js            入口文件
-│   │   ├── modules             模块划分
-│   │   │   └── main.js
-│   │   └── mutation-types.js   统一管理mutation命名常量
-│   └── utils                   插件和js组件
-│       ├── constant.js         业务常量
-│       └── globalConfig.js     Vue全局环境变量配置
-└── yarn.lock                   推荐使用yarn
+│   │           └── goodsRecord.vue
+│   ├── router  // 路由
+│   ├── store   // vuex状态管理
+│   │   ├── actions.js
+│   │   ├── getters.js
+│   │   ├── index.js
+│   │   ├── mutation-types.js
+│   │   └── mutations.js
+│   ├── styles  // 通用样式（在App.vue根组件里面导入的）
+│   │   ├── global.scss
+│   │   ├── index.scss
+│   │   ├── media-queries.scss
+│   │   ├── reset.scss
+│   │   └── vars.scss // 全局css变量
+│   └── utils   // 处理特定业务模块js
+│       ├── auth.js
+│       ├── constants.js
+│       ├── dialog.js
+│       ├── formateDate.js
+│       └── globalConfig.js // 导入全局配置
+├── static // 静态资源（不被打包的）
+├── test // 测试
+│   ├── api // 接口测试
+│   ├── e2e
+│   └── unit
+└── yarn.lock
+
+37 directories, 112 files
+
 ```
 
 ## 开发
