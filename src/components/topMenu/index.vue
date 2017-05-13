@@ -1,5 +1,4 @@
 <template>
-    <div class="main-wrapper">
         <!--导航栏-->
         <nav class="navbar-wrapper">
             <div class="navbar navbar-inverse">
@@ -40,7 +39,7 @@
                                         <router-link to="/recommendPath">推荐路径(免费)</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/cBusiness">往返综合业务(免费)</router-link>
+                                        <router-link to="/upDown">往返综合业务(免费)</router-link>
                                     </li>
                                     <li><a>未来规划(付费)</a></li>
                                     <li class="divider"></li>
@@ -94,7 +93,6 @@
                 </div>
             </div>
         </nav>
-    </div>
 
 </template>
 
@@ -132,9 +130,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .main-wrapper {
-        height: 100%;
-    }
 
     .navbar-wrapper {
         width: 100%;
@@ -150,13 +145,16 @@
             &-brand {
                 font-size: 1.6em;
                 font-weight: 500;
-                line-height: 50px;
+                line-height: 60px;
                 height: 100%;
                 /*@media (max-width: 757px) {*/
                 /*line-height: 30px;*/
                 /*}*/
 
             }
+          &-toggle{
+            padding: 22px 10px;
+          }
             &-collapse {
                 @media (max-width: 757px) {
                     box-shadow: #767474 0px 4px 5px;

@@ -15,7 +15,12 @@
               <p>货物量：{{item.quantity}}</p>
               <p>匹配结果：
 
-                <router-link :to="{path:'/goodsRecord/goodsDetail',query:{id:item.num}}"
+                <!--<router-link :to="{path:'/goodsRecord/goodsDetail',query:{id:item.num}}"-->
+                             <!--class="btn btn-primary btn-lg">成功(查看详细信息)-->
+
+                <!--</router-link>-->
+
+                <router-link to="/goodsRecord/goodsDetail"
                              class="btn btn-primary btn-lg">成功(查看详细信息)
 
                 </router-link>
@@ -25,6 +30,7 @@
         </template>
       </template>
     </mainPage>
+    <router-view></router-view>
   </div>
 </template>
 

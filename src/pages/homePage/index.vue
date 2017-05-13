@@ -1,37 +1,37 @@
 <template>
-  <div>
-  <top-menu></top-menu>
-  <div class="carousel-container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="~assets/img/global.jpg">
-        </div>
-        <div class="item">
-          <img src="~assets/img/global.jpg">
-        </div>
-        <div class="item">
-          <img src="~assets/img/global.jpg">
+  <div class="main-wrapper">
+    <top-menu></top-menu>
+    <div class="carousel-container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="~assets/img/global.jpg">
+          </div>
+          <div class="item">
+            <img src="~assets/img/global.jpg">
+          </div>
+          <div class="item">
+            <img src="~assets/img/global.jpg">
+          </div>
         </div>
       </div>
+      <a class="carousel-control left" href="#myCarousel"
+         data-slide="prev">
+      </a>
+      <a class="carousel-control right" href="#myCarousel"
+         data-slide="next">
+      </a>
+      <section class="footer">
+        <div class="foot-tips">
+          <h2>{{footTips}}</h2>
+        </div>
+      </section>
     </div>
-    <a class="carousel-control left" href="#myCarousel"
-       data-slide="prev">
-    </a>
-    <a class="carousel-control right" href="#myCarousel"
-       data-slide="next">
-    </a>
-    <section class="footer">
-      <div class="foot-tips">
-        <h2>{{footTips}}</h2>
-      </div>
-    </section>
-  </div>
   </div>
 </template>
 
@@ -39,7 +39,7 @@
   import topMenu from '@/components/topMenu'
   export default {
     name: 'carousel',
-    components:{
+    components: {
       topMenu
     },
     data() {
@@ -54,6 +54,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .main-wrapper{
+    height: 100%;
+  }
   /*轮播*/
   .carousel-container {
     transition: none !important; /*去除组件加载过度*/
@@ -87,16 +90,6 @@
     }
   }
 
-  /*.carousel-indicators{
-      position: absolute;
-      background: red;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      width: 10%;
-      /*width: 100%;*/
-
-  /*}*/
   .carousel-inner {
     overflow: hidden;
     width: 100%;

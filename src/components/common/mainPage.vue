@@ -2,7 +2,7 @@
     <div class="col-md-11 panel-container">
         <ul class="breadcrumb">
             <li>
-                <router-link to="/main">首页</router-link>
+                <router-link to="/homePage">首页</router-link>
             </li>
             <slot name="breadcrumb"></slot>
         </ul>
@@ -32,9 +32,7 @@
         padding-top: 70px;
         .breadcrumb {
             margin: 34px 0 15px 0;
-            @media (max-width:757px ) {
-                margin: 0 0 15px 0;
-            }
+
         }
     }
 
