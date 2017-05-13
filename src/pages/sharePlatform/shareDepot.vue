@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <topMenu></topMenu>
     <mainPage>
         <template slot="breadcrumb">
             <li class="active">共享拼仓</li>
@@ -37,15 +39,18 @@
             </div>
         </template>
     </mainPage>
+  </div>
 </template>
 
 <script>
-    import mainPage from '@/components/mainPage';
+    import mainPage from '@/components/common/mainPage';
+    import topMenu from '@/components/topMenu'
 
     export default {
         name: 'rentIn',
         components: {
-            mainPage
+            mainPage,
+            topMenu
         },
         data() {
             return {

@@ -4,27 +4,25 @@ import App from '@/App';
 import auth from '@/utils/auth';
 
 // 按chunk分块
-const main = r => require.ensure([], () => r(require('@/pages/main')), 'main');
-const carousel = r => require.ensure([], () => r(require('@/pages/main/carousel/index')), 'main');
-
+// 主页
+const homePage = r => require.ensure([], () => r(require('@/pages/homePage')), 'homePage');
+// 登录注册
 const login = r => require.ensure([], () => r(require('@/pages/login')), 'login');
 const signUp = r => require.ensure([], () => r(require('@/pages/login/signUp')), 'login');
 const signIn = r => require.ensure([], () => r(require('@/pages/login/signIn')), 'login');
-
-const shareDepot = r => require.ensure([], () => r(require('@/pages/main/sharePlatform/shareDepot')), 'sharePlatform');
-const shareCar = r => require.ensure([], () => r(require('@/pages/main/sharePlatform/shareCar')), 'sharePlatform');
-
-const transportRecord = r => require.ensure([], () => r(require('@/pages/main/transportation/transportRecord')), 'transportation');
-const transportDetail = r => require.ensure([], () => r(require('@/pages/main/transportation/transportDetail/index')), 'transportation');
-const recommendPath = r => require.ensure([], () => r(require('@/pages/main/transportation/recommendPath')), 'transportation');
-const cBusiness = r => require.ensure([], () => r(require('@/pages/main/transportation/cBusiness')), 'transportation');
-const cBusinessDetail = r => require.ensure([], () => r(require('@/pages/main/transportation/cBusinessDetail/index')), 'transportation');
-
-
-const goodsRecord = r => require.ensure([], () => r(require('@/pages/main/wareHouse/goodsRecord')), 'wareHouse');
-const goodsDetail = r => require.ensure([], () => r(require('@/pages/main/wareHouse/goodsDetail/index')), 'wareHouse');
-const constructionPlan = r => require.ensure([], () => r(require('@/pages/main/wareHouse/constructionPlan')), 'wareHouse');
-
+// 共享平台
+const shareDepot = r => require.ensure([], () => r(require('@/pages/sharePlatform/shareDepot')), 'sharePlatform');
+const shareCar = r => require.ensure([], () => r(require('@/pages/sharePlatform/shareCar')), 'sharePlatform');
+// 运输管理
+const transportRecord = r => require.ensure([], () => r(require('@/pages/transportation/transportRecord')), 'transportation');
+const recommendPath = r => require.ensure([], () => r(require('@/pages/transportation/recommendPath')), 'transportation');
+const cBusiness = r => require.ensure([], () => r(require('@/pages/transportation/cBusiness')), 'transportation');
+const cBusinessDetail = r => require.ensure([], () => r(require('@/pages/transportation/children/cBusinessDetail')), 'transportation');
+const transportDetail = r => require.ensure([], () => r(require('@/pages/transportation/children/transportDetail')), 'transportation');
+//仓储管理
+const goodsRecord = r => require.ensure([], () => r(require('@/pages/wareHouse/goodsRecord')), 'wareHouse');
+const constructionPlan = r => require.ensure([], () => r(require('@/pages/wareHouse/constructionPlan')), 'wareHouse');
+const goodsDetail = r => require.ensure([], () => r(require('@/pages/wareHouse/children/goodsDetail')), 'wareHouse');
 
 Vue.use(Router);
 
@@ -39,7 +37,7 @@ const router = new Router({
           path: '',
           redirect: '/login'
         },
-        // 登录注册页面
+        // 登录注册
         {
           path: '/login',
           component: login,
@@ -54,94 +52,82 @@ const router = new Router({
             }
           ]
         },
-        // 主页面
+        // 主页
         {
-          path: '/main',
-          component: main,
-          children: [
-            {
-              path: '', // 轮播
-              component: carousel
-
-            },
-            {
-              path: 'shareCar',//共享拼车
-              component: shareCar,
-              meta: { requireLogin: true }
-            },
-            {
-              path: 'shareDepot',//共享拼仓
-              component: shareDepot,
-              meta: { requireLogin: true }
-            },
-            {
-              path: 'goodsRecord', //货物记录
-              component: goodsRecord,
-              meta: { requireLogin: true },
-              children: [
-                {
-                  path: 'goodsDetail',
-                  component: goodsDetail,
-                  meta: { requireLogin: true }
-                }
-              ]
-            },
-            {
-              path: 'transportRecord',//运输记录
-              component: transportRecord,
-              meta: { requireLogin: true },
-              children: [
-                {
-                  path: 'transportDetail',
-                  component: transportDetail,
-                  meta: { requireLogin: true }
-                }
-              ]
-            },
-            {
-              path: 'constructionPlan', //建设规划
-              component: constructionPlan,
-              meta: { requireLogin: true }
-            },
-            {
-              path: 'recommendPath', //推荐路径
-              component: recommendPath,
-              meta: { requireLogin: true }
-            },
-            {
-              path: 'cBusiness', //往返综合业务
-              component: cBusiness,
-              meta: { requireLogin: true },
-              children: [
-                {
-                  path: 'cBusinessDetail',
-                  component: cBusinessDetail,
-                  meta: { requireLogin: true }
-                }
-              ]
-
-            },
-            {
-              path: 'shareDepot',//共享拼仓
-              component: shareDepot,
-              meta: { requireLogin: true }
-            },
-            {
-              path: 'shareCar',//共享拼车
-              component: shareCar,
-              meta: { requireLogin: true }
-            },
-
-          ]
-
+          path: '/homePage',
+          component: homePage
+        },
+        // 共享平台
+        {
+          path: '/shareCar',//共享拼车
+          component: shareCar,
+          meta: { requireLogin: true }
+        },
+        {
+          path: '/shareDepot',//共享拼仓
+          component: shareDepot,
+          meta: { requireLogin: true }
         },
 
-      ]
+        // 运输管理
+        {
+          path: '/transportRecord',//运输记录
+          component: transportRecord,
+          meta: { requireLogin: true },
+          children: [
+            {
+              path: 'transportDetail',
+              component: transportDetail,
+              meta: { requireLogin: true }
+            }
+          ]
+        },
+        {
+          path: '/recommendPath', //推荐路径
+          component: recommendPath,
+          meta: { requireLogin: true }
+        },
+        {
+          path: '/cBusiness', //往返综合业务
+          component: cBusiness,
+          meta: { requireLogin: true },
+          children: [
+            {
+              path: 'cBusinessDetail',
+              component: cBusinessDetail,
+              meta: { requireLogin: true }
+            }
+          ]
+        },
+
+        // 仓储管理
+        {
+          path: '/goodsRecord', //货物记录
+          component: goodsRecord,
+          meta: { requireLogin: true },
+          children: [
+            {
+              path: 'goodsDetail',
+              component: goodsDetail,
+              meta: { requireLogin: true }
+            }
+          ]
+        },
+        {
+          path: '/constructionPlan', //建设规划
+          component: constructionPlan,
+          meta: { requireLogin: true }
     },
-  ],
-  mode: 'hash',
-  strict: process.env.NODE_ENV !== 'production'
-});
+
+  ]
+},
+],
+mode: 'hash',
+  strict
+:
+process.env.NODE_ENV !== 'production'
+})
+;
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireLogin)) {

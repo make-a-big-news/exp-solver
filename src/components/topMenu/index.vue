@@ -11,7 +11,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <router-link to="/main" class="navbar-brand"><span>EXP-SOLVER</span></router-link>
+                        <router-link to="/homePage" class="navbar-brand"><span>EXP-SOLVER</span></router-link>
                     </div>
                     <div class="navbar-collapse collapse navbar-responsive-collapse" :class="{active:isCtrlBarActive}">
                         <ul class="nav navbar-nav">
@@ -19,12 +19,12 @@
                                 <a class="btn" data-toggle="dropdown">仓储管理</a>
                                 <ul class="dropdown-menu" @click="controlNavbar">
                                     <li>
-                                        <router-link to="/main/goodsRecord">货物记录(免费)</router-link>
+                                        <router-link to="/goodsRecord">货物记录(免费)</router-link>
                                     </li>
                                     <li><a>压力预测(免费)</a></li>
                                     <li><a>推荐管理(免费)</a></li>
                                     <li>
-                                        <router-link to="/main/constructionPlan">建设规划(付费)</router-link>
+                                        <router-link to="/constructionPlan">建设规划(付费)</router-link>
                                     </li>
                                     <li class="divider"></li>
                                 </ul>
@@ -33,14 +33,14 @@
                                 <a class="btn" data-toggle="dropdown">运输管理</a>
                                 <ul class="dropdown-menu" @click="controlNavbar">
                                     <li>
-                                        <router-link to="/main/transportRecord">运输记录(免费)</router-link>
+                                        <router-link to="/transportRecord">运输记录(免费)</router-link>
                                     </li>
                                     <li><a>车辆调配(免费)</a></li>
                                     <li>
-                                        <router-link to="/main/recommendPath">推荐路径(免费)</router-link>
+                                        <router-link to="/recommendPath">推荐路径(免费)</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/main/cBusiness">往返综合业务(免费)</router-link>
+                                        <router-link to="/cBusiness">往返综合业务(免费)</router-link>
                                     </li>
                                     <li><a>未来规划(付费)</a></li>
                                     <li class="divider"></li>
@@ -50,10 +50,10 @@
                                 <a class="btn" data-toggle="dropdown">共享用呗</a>
                                 <ul class="dropdown-menu" @click="controlNavbar">
                                     <li>
-                                        <router-link to="/main/shareDepot">共享拼仓(免费)</router-link>
+                                        <router-link to="/shareDepot">共享拼仓(免费)</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/main/shareCar">共享拼车(免费)</router-link>
+                                        <router-link to="/shareCar">共享拼车(免费)</router-link>
                                     </li>
                                     <li class="divider"></li>
                                 </ul>
@@ -94,10 +94,6 @@
                 </div>
             </div>
         </nav>
-
-        <transition name="fadein">
-            <router-view></router-view>
-        </transition>
     </div>
 
 </template>

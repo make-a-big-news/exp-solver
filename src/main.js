@@ -49,7 +49,6 @@ import FastClick from 'fastclick'
 Vue.use(globalConfig);
 Vue.use(dialog);
 
-
 /* eslint-disable no-new */
 new Vue({
     router,

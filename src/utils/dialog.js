@@ -4,7 +4,7 @@
  * 使用: this.$dialog(title, content, positive, close, onPositive, onClose)
  */
 
-import dialog from '@/components/dialog';
+import dialog from '@/components/common/dialog';
 // Vue作为全局变量时自动安装
 if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(plugin)

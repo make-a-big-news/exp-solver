@@ -55,7 +55,7 @@
             signIn(){
                 this.$API.login(this.params).then((rsp) => {
                     this.$auth.login();
-                    this.$router.push("/main");
+                    this.$router.push("/homePage");
                 }).catch((e)=>{
                     alert("账号密码错误，请重新输入");
                 })

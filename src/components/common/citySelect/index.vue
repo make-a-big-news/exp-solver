@@ -58,6 +58,7 @@
       this.oldProvince = this.province;
       this.oldCity = this.city;
       this.oldDistrict = this.district;
+      console.log(this.province);
       let seletedProvince = this.provinces.filter(function (item) {
         return item[this.valueType] === this.province;
       }.bind(this));

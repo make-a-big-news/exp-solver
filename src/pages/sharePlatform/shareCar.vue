@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <topMenu></topMenu>
   <mainPage>
     <template slot="breadcrumb">
       <li class="active">共享拼车</li>
@@ -9,8 +11,6 @@
         <div class="form-group label-floating">
           <label class="control-label">运输目的地</label>
           <citySelect ></citySelect>
-          <!--<input class="form-control" id="focusedInput2" type="text">-->
-          <!--<zhichao :initName="zhichaoName"></zhichao>-->
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput3">货物量</label>
@@ -39,23 +39,23 @@
       </div>
     </template>
   </mainPage>
+  </div>
 </template>
 
 <script>
-  import mainPage from '@/components/mainPage';
-  import axios from 'axios';
-  import citySelect from '@/components/citySelect';
-  import zhichao from './zhichao.vue';
+  import mainPage from '@/components/common/mainPage';
+  import citySelect from '@/components/common/citySelect';
+  import topMenu from '@/components/topMenu'
+
   export default {
     name: 'searchCar',
     components: {
       mainPage,
       citySelect,
-      zhichao
+      topMenu
     },
     data() {
       return {
-        zhichaoName: 'zhichao',
         input: {
           quantity: '',
           date: '',
