@@ -1,82 +1,109 @@
 <template>
   <div>
-  <topMenu></topMenu>
+    <topMenu></topMenu>
     <mainPage>
-        <template slot="breadcrumb">
-            <li class="active">共享拼仓</li>
-        </template>
+      <template slot="breadcrumb">
+        <li class="active">共享拼仓</li>
+      </template>
 
-        <template slot="main">
-            <div class="container">
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput1">仓储编号</label>
-                    <input class="form-control" id="focusedInput1" type="text" >
-                    <p class="help-block">请输入您要租用的仓库编号</p>
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput2">存储货物总量</label>
-                    <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10" v-model.lazy.trim="input.quantity">
-                    <p class="help-block">请输入您预计存储的货物量(10~90)</p>
-                </div>
-              <div class="form-group label-floating">
-                <label class="control-label" for="focusedInput3">发货具体时间</label>
-                <input class="form-control" id="focusedInput3" type="time" v-model.lazy.trim="input.time">
-              </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput4">仓储租用时间</label>
-                    <input class="form-control" id="focusedInput4" type="text">
-                    <p class="help-block">请输入您预计租用的时间</p>
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput5">价格区间</label>
-                    <input class="form-control" id="focusedInput5" type="text">
-                    <p class="help-block">请输入您可以接受的价格区间</p>
-                </div>
-                <div class="wrap">
-                    <a class="btn btn-raised btn-primary" style="float: right;" @click="submit">提交</a>
-                </div>
+      <template slot="main">
+        <div class="container">
+          <div>
+            <h3>请选择：</h3>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="0" v-model="input.rent_want">
+                仓库出租
+              </label>
             </div>
-        </template>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="1" v-model="input.rent_want">
+                仓库租用
+              </label>
+            </div>
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput2">仓库容量</label>
+            <input class="form-control" id="focusedInput2" type="number" min="10" max="90" step="10"
+                   v-model.trim="input.amount">
+            <p class="help-block">请输入您的仓库预计存储的货物量(10~90)吨</p>
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput3" v-if="input.rent_want === '0'">出租日期</label>
+            <label class="control-label" for="focusedInput3" v-else>租用日期</label>
+            <input class="form-control" id="focusedInput3" type="date"
+                   v-model.trim="input.date">
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput4" v-if="input.rent_want === '0'">出租具体时间</label>
+            <label class="control-label" for="focusedInput4" v-else>租用具体时间</label>
+            <input class="form-control" id="focusedInput4" type="time"
+                   v-model.trim="input.time">
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput5" v-if="input.rent_want === '0'">仓储出租时间</label>
+            <label class="control-label" for="focusedInput5" v-else>仓储租用时间</label>
+            <input class="form-control" id="focusedInput5" type="text" v-model.trim="input.duration">
+            <p class="help-block">请输入您预计租用的时间(h)</p>
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput6">价格区间</label>
+            <input class="form-control" id="focusedInput6" type="number" v-model.trim="input.price">
+            <p class="help-block">请输入您可以接受的价格区间</p>
+          </div>
+          <div class="wrap">
+            <a class="btn btn-raised btn-primary" style="float: right;" @click="submit">提交</a>
+          </div>
+        </div>
+      </template>
     </mainPage>
   </div>
 </template>
 
 <script>
-    import mainPage from '@/components/common/mainPage';
-    import topMenu from '@/components/topMenu'
+  import mainPage from '@/components/common/mainPage';
+  import topMenu from '@/components/topMenu';
+  import { storeService } from '@/service';
+  import axios from 'axios';
 
-    export default {
-      name: 'searchDepot',
-      components: {
-        mainPage,
-        topMenu
-      },
-      data() {
+
+  export default {
+    name: 'searchDepot',
+    components: {
+      mainPage,
+      topMenu
+    },
+    data() {
+      return {
+        input: {
+          amount: '',
+          date: '',
+          time: '',
+          duration: '',
+          price: ' ',
+          rent_want: '0',
+        },
+      }
+    },
+    computed: {
+      params(){
         return {
-          input: {
-            quantity: '',
-            date: '',
-            time: '',
-            duration: '',
-            if_vehicle: ''
-          },
+          amount: this.input.amount,
+          start_time: `${this.input.date} ${this.input.time}:00`,
+          duration: Number(this.input.duration),
+          rent_want: Number(this.input.rent_want),
         }
-      },
-      computed: {
-        params(){
-          return {
-            number_code: 1,
-            quantity: this.input.quantity,
-            start_time: `${this.input.date.replace(/-/g, '/')} ${this.input.time}:00`,
-            duration: this.input.duration,
-            if_vehicle: Number(this.input.if_vehicle)
-          }
-        }
-      },
-      methods: {
-        submit(){
-          const _this = this;
-          this.$API.match_vehicle(this.params).then((rsp) => {
+      }
+    },
+    methods: {
+      submit(){
+        const _this = this;
+        axios({
+          url: 'http://162.243.154.46:8000/list_storerecords',
+          method: 'get',
+        })
+          .then((rsp) => {
             this.$showDialog({
               title: '成功',
               content: '您的信息已提交，是否跳转至运输管理页面？',
@@ -86,20 +113,35 @@
               }
             })
           }).catch((e) => {
-            this.$showDialog({
-              title: '出错了',
-              content: e.response.status
-            })
-          })
-        }
+//          this.$showDialog({
+//            title: '出错了',
+//            content: e.response.status
+//          })
+          console.dir(e)
+        })
       }
-
+    },
+    created(){
+      axios.get('http://zhangboyuan-10039837.cossh.myqcloud.com/ShoppingWebpage.png').then(function (response) {
+        console.log(response);
+      })
     }
+  }
 
-
-    //TODO: post /match_storehouse
 </script>
 
 <style lang="scss" scoped>
+  .is-empty {
+    input::-webkit-datetime-edit-fields-wrapper {
+      display: none;
+    }
+  }
+
+  .is-focused {
+    input::-webkit-datetime-edit-fields-wrapper {
+      display: inline-block;
+    }
+  }
+
 
 </style>

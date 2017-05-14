@@ -14,25 +14,25 @@
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput3">货物量</label>
-          <input class="form-control" id="focusedInput3" type="number" min="10" max="90" step="10" v-model.lazy.trim="input.quantity">
+          <input class="form-control" id="focusedInput3" type="number" min="10" max="90" step="10" v-model.trim="input.quantity">
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput4">发货日期</label>
           <input class="form-control" id="focusedInput4" type="date"
-                 v-model.lazy.trim="input.date">
+                 v-model.trim="input.date">
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput5">发货具体时间</label>
           <input class="form-control" id="focusedInput5" type="time"
-                 v-model.lazy.trim="input.time">
+                 v-model.trim="input.time">
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="focusedInput6">等待时间</label>
-          <input class="form-control" id="focusedInput6" type="text" v-model.lazy.trim="input.duration">
+          <input class="form-control" id="focusedInput6" type="text" v-model.trim="input.duration">
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" v-model.lazy.trim="input.if_vehicle"> &nbsp;是否有车
+            <input type="checkbox" v-model.trim="input.if_vehicle"> &nbsp;是否有车
                     </label>
           <a class="btn btn-raised btn-primary" style="float: right;" @click="submit">提交</a>
         </div>

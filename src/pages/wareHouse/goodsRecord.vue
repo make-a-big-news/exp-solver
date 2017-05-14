@@ -10,20 +10,21 @@
         <template v-for="item in items">
           <div class="panel panel-default">
             <div class="panel-body">
-              <p>运输编号: {{item.num}}</p>
-              <p>发货时间：{{item.time | unixToTime}}</p>
-              <p>货物量：{{item.quantity}}</p>
+              <p>运输编号: {{item.number_code}}</p>
+              <p>发货时间：{{item.start_time}}</p>
+              <p>货物量：{{item.amount}}</p>
               <p>匹配结果：
 
                 <!--<router-link :to="{path:'/goodsRecord/goodsDetail',query:{id:item.num}}"-->
-                             <!--class="btn btn-primary btn-lg">成功(查看详细信息)-->
+                 <!--class="btn btn-primary btn-lg">成功(查看详细信息)-->
 
-                <!--</router-link>-->
+                 <!--</router-link>-->
 
-                <router-link to="/goodsRecord/goodsDetail"
-                             class="btn btn-primary btn-lg">成功(查看详细信息)
-
+                <router-link class="btn btn-primary btn-lg" to="/goodsRecord/goodsDetail" v-if='item.if_matched === 1'>
+                  匹配成功(查看详细信息)
                 </router-link>
+
+                <router-link class="btn btn-primary btn-lg" to="/goodsRecord/goodsDetail" v-else> 匹配中....</router-link>
               </p>
             </div>
           </div>
@@ -38,6 +39,7 @@
   import mainPage from '@/components/common/mainPage';
   import unixToTime from '@/utils/formateDate';
   import topMenu from '@/components/topMenu';
+  import { storeService } from '@/service';
 
 
   export default {
@@ -48,37 +50,24 @@
     },
     data() {
       return {
-        number_code: '',
-        items: [
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 40,
-            state: 0
-          },
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 20,
-            state: 0
-          },
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 10,
-            state: 0
-          }
-        ]
+        items: []
       }
     },
-//        mounted(){
-//            // 从服务器拉取数据
-//            axois.get('/list_vechileinfos').then(rsp => {
-//                this.items = rsp.data;
-//            })
-//        }
+    created(){
+      storeService.listAll().then(rsp => {
+        this.items = rsp.data;
+      })
+    },
+//    测试
+    methods: {
+      sin(){
+        var arr = this.items;
+        console.log(a.number_code);
+
+      }
+    }
   }
-  //TODO: POST 仓库信息发布/match_storehouse
+  //TODO: POST 显示所有发布信息/list_storerecords并且还要匹配？？
 </script>
 
 <style lang="scss" scoped>

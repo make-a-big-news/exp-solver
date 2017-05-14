@@ -21,7 +21,6 @@ export default function plugin(Vue) {
     let vm = new component({ el: document.createElement('div') });
     // 添加到body尾部
     document.body.appendChild(vm.$el);
-    // 为啥有"="
     function showDialog({ title = '提示', content = '', positiveTxt = '确定', closeTxt = '', onPositive }) {
         vm.title = title;
         vm.content = content;

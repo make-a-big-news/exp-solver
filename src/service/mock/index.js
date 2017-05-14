@@ -7,31 +7,51 @@ export default function () {
   // 仓库信息发布
   mock.onPost('/match_storehouse', {
     params: {
-      amount: 3,
+      quantity: 10,
       start_time: '2017-04-14 20:00:00',
-      duration: 2,
+      duration: 90,
       rent_want: 1
     }
   }).reply(200, {
     status: 1
   });
   // 显示所有发布信息
-  mock.onGet('/list_storerecords').reply(200, {
-    start_time: "2017-04-05 00:00:00",
-    duration: 90,
-    number_code: 1,
-    rent_want: 1,
-    if_matched: 1,
-    matched_pairs: ['xx', 'yy'],
-    amount: '40'
-  });
+  mock.onGet('/list_storerecords').reply(200, [
+    {
+      start_time: "2017-04-14 20:00:00",
+      duration: 90,
+      number_code: 1,
+      rent_want: 1,
+      matched_pairs: ['xx', 'yy'],
+      amount: 40,
+      if_matched:1
+  },
+    {
+      start_time: "2017-04-14 20:00:00",
+      duration: 90,
+      number_code: 1,
+      rent_want: 1,
+      matched_pairs: ['xx', 'yy'],
+      amount: 40,
+      if_matched:1
+    },
+    {
+      start_time: "2017-04-14 20:00:00",
+      duration: 90,
+      number_code: 1,
+      rent_want: 1,
+      matched_pairs: ['xx', 'yy'],
+      amount: 40,
+      if_matched:1
+    }
+  ]);
   // 获取匹配结果
   mock.onGet('/get_matched_storerecords', {
     params: {
-      number_code: 1 //和显示发布信息这里code的一样
+      number_code:1 //和显示发布信息这里code的一样
     }
   }).reply(200, {
-    start_time: "2017-04-05 00:00:00",
+    start_time: "2017-04-14 20:00:00",
     duration: 90,
     number_code: 1,
     rent_want: 1,
@@ -42,7 +62,8 @@ export default function () {
   // 发布车辆信息
   mock.onPost('/match_vehicle', {
     params: {
-      start_time: '2017-04-12 20:20:00',
+      date: '2017-04-12',
+      time: '20:0:0',
       duration: 2,
       quantity: 20,
       if_vehicle: 1
