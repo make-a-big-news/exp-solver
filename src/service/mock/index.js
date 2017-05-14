@@ -1,9 +1,7 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-
-const mock = new MockAdapter(axios);
-
-export default function () {
+/**
+ * 模拟数据
+ */
+export default function intercepter(mock) {
   // 仓库信息发布
   mock.onPost('/match_storehouse', {
     params: {
