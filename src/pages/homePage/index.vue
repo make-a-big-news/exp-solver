@@ -36,7 +36,8 @@
 </template>
 
 <script>
-  import topMenu from '@/components/topMenu'
+  import topMenu from '@/components/topMenu';
+
   export default {
     name: 'carousel',
     components: {
@@ -48,7 +49,7 @@
       }
     },
     mounted(){
-      $('.carousel').carousel()
+      $('.carousel').carousel();
     }
   }
 </script>

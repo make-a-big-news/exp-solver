@@ -66,7 +66,6 @@
   import topMenu from '@/components/topMenu';
   import { storeService } from '@/service';
 
-
   export default {
     name: 'searchDepot',
     components: {
@@ -96,25 +95,23 @@
       }
     },
     methods: {
-      submit(){
-        storeService.match(this.params)
-          .then((rsp) => {
-            this.$showDialog({
-              title: '成功',
-              content: '您的信息已提交，是否跳转至运输管理页面？',
-              close: '取消',
-              onPositive: function () {
-                _this.$router.push('/goodsRecord')
-              }
-            })
-          }).catch((e) => {
+        const _this = this;
+        storeService.match(this.params).then((rsp) => {
+          // FIXME：由于开启了CORS，故post前会发一次OPTIONS请求，但是服务器那边不接受OPTIONS请求，找何光勤。
+          this.$showDialog({
+            title: '成功',
+            content: '您的信息已提交，是否跳转至运输管理页面？',
+            close: '取消',
+            onPositive: function () {
+              _this.$router.push('/goodsRecord')
+            }
+          })
+        }).catch((e) => {
           this.$showDialog({
             title: '出错了',
             content: e.response.status
-          })
-        })
-      }
-    }
+          });
+      })
   }
 
 </script>

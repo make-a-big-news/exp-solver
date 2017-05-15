@@ -208,7 +208,7 @@
       i {
         margin-top: -3px;
       }
-      .divider{
+      .divider {
         display: none;
       }
     }
@@ -228,7 +228,7 @@
   }
 
   @media (max-width: 757px) {
-    .navbar-wrapper .dropdown-menu .divider{
+    .navbar-wrapper .dropdown-menu .divider {
       display: block;
     }
     .active {

@@ -5,12 +5,11 @@
  */
 
 import dialog from '@/components/common/dialog';
-// Vue作为全局变量时自动安装
+
 if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(plugin)
 }
 
-// 避免重复安装
 plugin.installed = false;
 export default function plugin(Vue) {
     if (plugin.installed) {
@@ -31,7 +30,7 @@ export default function plugin(Vue) {
         vm.visible = true
     }
 
-    window.addEventListener('hashchange', () => { //hashchange是啥
+    window.addEventListener('hashchange', () => {
         if (vm.visible) {
             vm.visible = false
         }
