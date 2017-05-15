@@ -33,7 +33,7 @@ export default function () {
       rent_want: 1,
       matched_pairs: ['xx', 'yy'],
       amount: 40,
-      if_matched:1
+      if_matched:0
     },
     {
       start_time: "2017-04-14 20:00:00",

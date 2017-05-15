@@ -65,7 +65,6 @@
   import mainPage from '@/components/common/mainPage';
   import topMenu from '@/components/topMenu';
   import { storeService } from '@/service';
-  import axios from 'axios';
 
 
   export default {
@@ -98,11 +97,7 @@
     },
     methods: {
       submit(){
-        const _this = this;
-        axios({
-          url: 'http://162.243.154.46:8000/list_storerecords',
-          method: 'get',
-        })
+        storeService.match(this.params)
           .then((rsp) => {
             this.$showDialog({
               title: '成功',
@@ -113,18 +108,12 @@
               }
             })
           }).catch((e) => {
-//          this.$showDialog({
-//            title: '出错了',
-//            content: e.response.status
-//          })
-          console.dir(e)
+          this.$showDialog({
+            title: '出错了',
+            content: e.response.status
+          })
         })
       }
-    },
-    created(){
-      axios.get('http://zhangboyuan-10039837.cossh.myqcloud.com/ShoppingWebpage.png').then(function (response) {
-        console.log(response);
-      })
     }
   }
 

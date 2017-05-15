@@ -3,28 +3,23 @@
     <topMenu></topMenu>
     <mainPage :showWrapper=false>
       <template slot="breadcrumb">
-        <li class="active">货物记录</li>
+        <li class="active">拼仓记录</li>
       </template>
 
       <template slot="main">
         <template v-for="item in items">
           <div class="panel panel-default">
             <div class="panel-body">
-              <p>运输编号: {{item.number_code}}</p>
-              <p>发货时间：{{item.start_time}}</p>
-              <p>货物量：{{item.amount}}</p>
+              <p v-if="item.rent_want===0">仓储性质: 出租</p>
+              <p v-else="item.rent_want===1">仓储性质: 租用</p>
+              <p>仓库编号: {{item.number_code}}</p>
+              <p>开始时间：{{item.start_time}}</p>
+              <p>仓库容量：{{item.amount}}</p>
               <p>匹配结果：
-
-                <!--<router-link :to="{path:'/goodsRecord/goodsDetail',query:{id:item.num}}"-->
-                 <!--class="btn btn-primary btn-lg">成功(查看详细信息)-->
-
-                 <!--</router-link>-->
-
                 <router-link class="btn btn-primary btn-lg" to="/goodsRecord/goodsDetail" v-if='item.if_matched === 1'>
                   匹配成功(查看详细信息)
                 </router-link>
-
-                <router-link class="btn btn-primary btn-lg" to="/goodsRecord/goodsDetail" v-else> 匹配中....</router-link>
+                <a class="btn btn-primary btn-lg" v-else> 匹配中....</a>
               </p>
             </div>
           </div>
@@ -37,10 +32,8 @@
 
 <script>
   import mainPage from '@/components/common/mainPage';
-  import unixToTime from '@/utils/formateDate';
   import topMenu from '@/components/topMenu';
   import { storeService } from '@/service';
-
 
   export default {
     name: 'goodsRecord',
@@ -57,14 +50,6 @@
       storeService.listAll().then(rsp => {
         this.items = rsp.data;
       })
-    },
-//    测试
-    methods: {
-      sin(){
-        var arr = this.items;
-        console.log(a.number_code);
-
-      }
     }
   }
   //TODO: POST 显示所有发布信息/list_storerecords并且还要匹配？？

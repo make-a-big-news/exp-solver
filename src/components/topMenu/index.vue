@@ -18,7 +18,7 @@
               <a class="btn" data-toggle="dropdown">仓储管理</a>
               <ul class="dropdown-menu" @click="controlNavbar">
                 <li>
-                  <router-link to="/goodsRecord">货物记录(免费)</router-link>
+                  <router-link to="/goodsRecord">拼仓记录(免费)</router-link>
                 </li>
                 <li><a>压力预测(免费)</a></li>
                 <li><a>推荐管理(免费)</a></li>
@@ -32,7 +32,7 @@
               <a class="btn" data-toggle="dropdown">运输管理</a>
               <ul class="dropdown-menu" @click="controlNavbar">
                 <li>
-                  <router-link to="/transportRecord">运输记录(免费)</router-link>
+                  <router-link to="/transportRecord">拼车记录(免费)</router-link>
                 </li>
                 <li><a>车辆调配(免费)</a></li>
                 <li>
