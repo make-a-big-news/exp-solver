@@ -2,7 +2,12 @@
   <div class="well">
     <form class="form-horizontal">
       <fieldset>
-        <legend class="platform">EXP-SOLVER 登录</legend>
+        <legend class="platform">EXP-SOLVER 登录
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="goBack">×
+
+          </button>
+        </legend>
         <div class="form-group">
           <label for="UserName" class="col-md-2 control-label">用户名</label>
           <div class="col-md-10 ">
@@ -59,6 +64,9 @@
       signUp(){
         this.$router.push("/login/signUp");
       },
+      goBack(){
+        this.$router.go(-1);
+      }
     }
   }
 </script>
@@ -129,6 +137,9 @@
       background: url("~assets/img/goldDress.png") no-repeat 18px 0px;
       background-size: 60%;
     }
+  }
+  .close{
+    line-height: 34px;
   }
 
   .signStyle {

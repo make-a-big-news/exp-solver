@@ -10,4 +10,5 @@
 <style lang="scss">
     /*引入全局通用样式*/
     @import "styles/index";
+  @import "styles/animate.css";
 </style>

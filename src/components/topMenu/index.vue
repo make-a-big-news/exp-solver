@@ -145,15 +145,13 @@
       &-brand {
         font-size: 1.6em;
         font-weight: 500;
-        line-height: 60px;
+        line-height: 50px;
         height: 100%;
-        /*@media (max-width: 757px) {*/
-        /*line-height: 30px;*/
-        /*}*/
+        padding: 15px 15px;
 
       }
       &-toggle {
-        padding: 22px 10px;
+        padding: 25px 10px;
       }
       &-collapse {
         @media (max-width: 757px) {
@@ -233,23 +231,8 @@
     }
     .active {
       display: none;
-      /*visibility: hidden;*/
-      /*opacity: 0;*/
+
     }
-    /*.active {*/
-    /*animation-name: fadeOut !important;*/
-    /*}*/
-
-    /*@keyframes fadeOut {*/
-    /*from {*/
-    /*opacity: 1 !important;*/
-    /*}*/
-
-    /*to {*/
-    /*opacity: 0 !important;*/
-    /*transform: translate3d(0, 100%, 0) !important;*/
-    /*}*/
-    /*}*/
   }
 
 </style>

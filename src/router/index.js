@@ -43,7 +43,7 @@ const router = new Router({
             component: login,
             children: [
               {
-                path: '',
+                path: 'signIn',
                 component: signIn
               },
               {

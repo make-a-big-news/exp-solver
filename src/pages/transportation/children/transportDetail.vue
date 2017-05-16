@@ -1,11 +1,9 @@
 <template>
-  <div class="modal" :class="{show:show}">
+  <div class="modal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="goBack">×
-
-
           </button>
           <h4 class="modal-title">运输详细信息</h4>
         </div>

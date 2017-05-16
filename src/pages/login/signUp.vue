@@ -2,7 +2,10 @@
   <div class="well">
     <form class="form-horizontal">
       <fieldset>
-        <legend class="platform">注册</legend>
+        <legend class="platform">注册
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="goBack">×
+          </button>
+        </legend>
         <div class="form-group">
           <label for="UserName" class="col-md-2 control-label">用户名</label>
           <div class="col-md-10">
@@ -103,6 +106,9 @@
       signIn(){
         this.$auth.login();
         this.$router.push("/homePage");
+      },
+      goBack(){
+        this.$router.go(-1);
       }
     }
   }
