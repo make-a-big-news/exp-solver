@@ -11,14 +11,16 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <p>运输编号: {{item.number_code}}</p>
-              <p>发货时间：{{item.time | unixToTime}}</p>
-              <p>货物量：{{item.quantity}}</p>
+              <p>运输开始时间：{{item.start_time}}</p>
+              <p>是否有车：
+              <span v-if="item.if_vehicle===1">有</span>
+                <span v-else>无</span>
+              </p>
               <p>匹配结果：
-
-                <router-link :to="{path:'/transportRecord/transportDetail',query:{number_code:item.number_code}}"
-                             class="btn btn-primary btn-lg">成功(查看详细信息)
+                <router-link :to="{path:'/transportRecord/transportDetail',query:{ number_code:item.number_code}}"
+                             class="btn btn-primary btn-lg" v-if='item.if_matched === 1'>匹配成功(查看详细信息)
                 </router-link>
-                 <!--<a class="btn btn-primary btn-lg" @click="showDetail(item.number_code)">成功(查看详细信息)</a>-->
+                <a class="btn btn-primary btn-lg" v-else>匹配中...</a>
               </p>
             </div>
           </div>
@@ -31,8 +33,8 @@
 
 <script>
   import mainPage from '@/components/common/mainPage';
-  import unixToTime from '@/utils/formateDate';
   import topMenu from '@/components/topMenu';
+  import { transportService } from '@/service';
 
 
   export default {
@@ -44,35 +46,15 @@
     data() {
       return {
         number_code: '',
-        items: [
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 40,
-            state: 0
-          },
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 20,
-            state: 0
-          },
-          {
-            num: 0,
-            time: 14483000000,
-            quantity: 10,
-            state: 0
-          }
-        ]
+        items: []
       }
     },
-    methods: {},
-//        mounted(){
-//            // 从服务器拉取数据
-//            axois.get('/list_vechileinfos').then(rsp => {
-//                this.items = rsp.data;
-//            })
-//        }
+    created(){
+      // 从服务器拉取数据
+      transportService.listAll().then(rsp => {
+        this.items = rsp.data;
+      })
+    }
   }
   //TODO:GET 展示车辆信息/list_vechileinfos
 </script>

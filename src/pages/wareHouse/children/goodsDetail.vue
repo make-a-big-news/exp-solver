@@ -7,12 +7,14 @@
 
 
           </button>
-          <h4 class="modal-title">租用详细信息</h4>
+          <h4 class="modal-title" v-if="item.rent_want===1">租用详细信息</h4>
+          <h4 class="modal-title" v-else>出租详细信息</h4>
         </div>
         <div class="modal-body">
           <p>仓库编号：{{item.number_code}}</p>
           <p>开始时间：{{item.start_time}}</p>
-          <p>租用时间：{{item.duration}}</p>
+          <p v-if="item.rent_want===1">租用时间：{{item.duration}}</p>
+          <p v-else>出租时间：{{item.duration}}</p>
           <p>仓库容量：{{item.amount}}</p>
           <p>匹配条目：<span v-for="matchedPair in item.matched_pairs">{{matchedPair + ' '}}</span></p>
         </div>

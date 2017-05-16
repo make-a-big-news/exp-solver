@@ -35,10 +35,13 @@ export const storeService = {
 
 export const transportService = {
   match: (params) => {
-    return request.post('/match_vehicle', params)
+    return axios.post('/match_vehicle', params)
   },
-  listAll: (params) => {
-    return request.get('/list_vechileinfos', params)
+  listAll: () => {
+    return axios.get('/list_vechileinfos')
+  },
+  getMatched: (params) => {
+    return axios.get('/get_matched_vehicle', {params: params})
   },
   getRecommendPath: (params) => {
     return request.get('/path_recommend', params)
