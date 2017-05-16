@@ -6,7 +6,7 @@
       <a class="signUp" @click="signUp">注册</a>
     </div>
     <div class="logo">
-    <h1 class="animated infinite rotateOut" v-if="show === 1">欢迎使用Exp-Solver物流智能共享平台</h1>
+    <h1 class="animated infinite rotateOut" v-if="show">欢迎使用Exp-Solver物流智能共享平台</h1>
       <h1  v-else>欢迎使用Exp-Solver物流智能共享平台</h1>
     </div>
     <router-view></router-view>
@@ -20,7 +20,7 @@
     name: 'login',
     data() {
       return {
-        show: 1
+        show: true
       }
     },
     methods: {
@@ -33,8 +33,8 @@
     },
     mounted(){
       const _this=this;
-      setTimeout(function () {
-        _this.show=0;
+      setTimeout( ()=> {
+        _this.show=false;
       },1000)
     }
   }
@@ -43,9 +43,11 @@
 <style lang="scss" scoped>
   .wrapper {
     margin: 0 auto;
-    background-image: url("~assets/img/login.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background:{
+      image: url("~assets/img/login.jpg");
+      repeat: no-repeat;
+      size: cover;
+    }
     opacity: 0.8;
     position: absolute;
     top: 0;
