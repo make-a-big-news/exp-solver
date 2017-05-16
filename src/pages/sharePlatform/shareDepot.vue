@@ -87,7 +87,7 @@
     computed: {
       params(){
         return {
-          amount: this.input.amount,
+          amount: Number(this.input.amount),
           start_time: `${this.input.date} ${this.input.time}:00`,
           duration: Number(this.input.duration),
           rent_want: Number(this.input.rent_want),
@@ -95,9 +95,9 @@
       }
     },
     methods: {
+      submit(){
         const _this = this;
-        storeService.match(this.params).then((rsp) => {
-          // FIXME：由于开启了CORS，故post前会发一次OPTIONS请求，但是服务器那边不接受OPTIONS请求，找何光勤。
+        storeService.match(this.params).then((rsp) => { // FIXME：由于开启了CORS，故post前会发一次OPTIONS请求，但是服务器那边不接受OPTIONS请求，找何光勤。
           this.$showDialog({
             title: '成功',
             content: '您的信息已提交，是否跳转至运输管理页面？',
@@ -111,7 +111,10 @@
             title: '出错了',
             content: e.response.status
           });
-      })
+
+        })
+      }
+    },
   }
 
 </script>

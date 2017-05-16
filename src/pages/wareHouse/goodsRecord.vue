@@ -16,8 +16,12 @@
               <p>开始时间：{{item.start_time}}</p>
               <p>仓库容量：{{item.amount}}</p>
               <p>匹配结果：
-                <router-link class="btn btn-primary btn-lg" to="/goodsRecord/goodsDetail" v-if='item.if_matched === 1'>
+
+                <router-link class="btn btn-primary btn-lg"
+                             :to="{path:'/goodsRecord/goodsDetail', query:{  number_code:item.number_code} }"
+                             v-if='item.if_matched === 1'>
                   匹配成功(查看详细信息)
+
                 </router-link>
                 <a class="btn btn-primary btn-lg" v-else> 匹配中....</a>
               </p>

@@ -4,12 +4,11 @@
 export default function intercepter(mock) {
   // 仓库信息发布
   mock.onPost('/match_storehouse', {
-    params: {
-      quantity: 10,
+      amount: 10,
       start_time: '2017-04-14 20:00:00',
-      duration: 90,
+      duration: 2,
       rent_want: 1
-    }
+
   }).reply(200, {
     status: 1
   });

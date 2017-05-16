@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="changeStore">×
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="goBack">×
 
 
           </button>
@@ -11,15 +11,15 @@
         </div>
         <div class="modal-body">
           <p>仓库编号：{{item.number_code}}</p>
-          <p>开始时间：{{item.startTime}}</p>
+          <p>开始时间：{{item.start_time}}</p>
           <p>租用时间：{{item.duration}}</p>
-          <p>仓库容量：{{item.quantity}}</p>
-          <p>匹配条目：<span v-for="matchPair in item.matchPairs">{{matchPair + ' '}}</span></p>
+          <p>仓库容量：{{item.amount}}</p>
+          <p>匹配条目：<span v-for="matchedPair in item.matched_pairs">{{matchedPair + ' '}}</span></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" @click="changeStore">关闭</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" @click="goBack">关闭</button>
           <button type="button" class="btn btn-primary">
-            <router-link to="/main/transportRecord">返回</router-link>
+            <a @click="goBack">返回</a>
           </button>
         </div>
       </div>
@@ -28,32 +28,25 @@
 </template>
 
 <script>
-  import unixToTime from '@/utils/formateDate';
+  import { storeService } from '@/service';
 
   export default {
     name: '',
     data() {
       return {
         show: true,
-        item: {
-          number_code: 0,
-          startTime: 14483000000,
-          endTime: 13245345436,
-          quantity: 40,
-          isCar: '有',
-          state: 0,
-          matchPairs: ['zz', 'aa', 'qq']
-        }
+        item: {}
       }
     },
     methods: {
-      changeStore() {
-        this.show = !this.show;
+      goBack(){
+        this.$router.go(-1);
       }
     },
-    mounted(){
-      // TODO:完善GET 获取匹配结果/get_matched_storerecords
-      this.$API.list_vechileinfos({ number_code: this.$route.params.number_code }).then()
+    created(){
+      storeService.getMatched(this.$route.query).then(rsp=>{
+        this.item=rsp.data;
+      })
     }
   }
 

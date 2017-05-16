@@ -9,9 +9,11 @@ import MockAdapter from 'axios-mock-adapter';
 import intercepter from './mock';
 
 const baseUrl = 'http://162.243.154.46:8000/';
-const goMock = 0;
+const goMock = 1;
 
-
+const request = axios.create({
+  baseURL: baseUrl
+});
 
 if (process.env.NODE_ENV === 'development' && goMock === 1) {
   const mock = new MockAdapter(axios);
@@ -21,19 +23,19 @@ if (process.env.NODE_ENV === 'development' && goMock === 1) {
 
 export const storeService = {
   match: (params) => {
-    return request.post('/match_storehouse', params)
+    return axios.post('/match_storehouse', params)
   },
   listAll: () => {
     return axios.get('/list_storerecords')
   },
   getMatched: (params) => {
-    return request.get('/get_matched_storerecords', params)
+    return axios.get('/get_matched_storerecords', {params: params})
   }
 };
 
 export const transportService = {
   match: (params) => {
-    return axios.post('/match_vehicle', params)
+    return request.post('/match_vehicle', params)
   },
   listAll: (params) => {
     return request.get('/list_vechileinfos', params)
@@ -45,6 +47,6 @@ export const transportService = {
 
 export const authService = {
   login: (params) => {
-    return request.post('/login', {params: params});
+    return axios.post('/login', {params: params});
   }
 };
