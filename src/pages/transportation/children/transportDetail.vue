@@ -20,8 +20,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" @click="goBack">关闭</button>
-          <button type="button" class="btn btn-primary">
-            <a @click="goBack">返回</a>
+          <button type="button" class="btn btn-primary" @click="goBack">
+            <a>返回</a>
           </button>
         </div>
       </div>
@@ -53,9 +53,11 @@
 </script>
 
 <style lang="scss" scoped>
-  .modal-dialog {
-    margin: 150px auto;
+  .modal{
+    display: block;
+    &-dialog {
+      margin: 150px auto;
+    }
   }
-
 </style>
 

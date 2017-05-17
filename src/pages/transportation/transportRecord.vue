@@ -18,7 +18,9 @@
               </p>
               <p>匹配结果：
                 <router-link :to="{path:'/transportRecord/transportDetail',query:{ number_code:item.number_code}}"
-                             class="btn btn-primary btn-lg" v-if='item.if_matched === 1'>匹配成功(查看详细信息)
+                             v-if='item.if_matched === 1'
+                             class="btn btn-primary btn-lg"
+                >匹配成功(查看详细信息)
                 </router-link>
                 <a class="btn btn-primary btn-lg" v-else>匹配中...</a>
               </p>
