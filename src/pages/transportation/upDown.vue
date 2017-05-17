@@ -8,16 +8,16 @@
 
       <template slot="main">
         <div class="container">
-          <div class="form-group label-floating">
-            <h4>运输起点</h4>
+          <div class=" label-floating">
+            <h4>运输起点:</h4>
             <citySelect ></citySelect>
           </div>
-          <div class="form-group label-floating">
-            <h4>运输终点</h4>
+          <div class=" label-floating">
+            <h4>运输终点:</h4>
             <citySelect ></citySelect>
           </div>
-          <div class="form-group label-floating">
-            <h4>车辆型号</h4>
+          <div class=" label-floating">
+            <h4>车辆型号:</h4>
             <select>
               <option value="">2吨车</option>
               <option value="">3吨车</option>
@@ -96,5 +96,11 @@
       display: inline-block;
     }
   }
+  .container {
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
+
 
 </style>

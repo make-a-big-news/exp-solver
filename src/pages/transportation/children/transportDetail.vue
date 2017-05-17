@@ -5,7 +5,8 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true" @click="goBack">×
           </button>
-          <h4 class="modal-title">运输详细信息</h4>
+          <h4 class="modal-title" v-if="item.rent_want===1">租用详细信息</h4>
+          <h4 class="modal-title" v-else>出租详细信息</h4>
         </div>
         <div class="modal-body">
           <p>运输编号：{{item.number_code}}</p>

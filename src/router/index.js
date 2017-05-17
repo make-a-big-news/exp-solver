@@ -22,6 +22,7 @@ const transportDetail = r => require.ensure([], () => r(require('@/pages/transpo
 //仓储管理
 const goodsRecord = r => require.ensure([], () => r(require('@/pages/wareHouse/goodsRecord')), 'wareHouse');
 const constructionPlan = r => require.ensure([], () => r(require('@/pages/wareHouse/constructionPlan')), 'wareHouse');
+const constructionChart = r => require.ensure([], () => r(require('@/pages/wareHouse/children/constructionChart')), 'wareHouse');
 const goodsDetail = r => require.ensure([], () => r(require('@/pages/wareHouse/children/goodsDetail')), 'wareHouse');
 
 Vue.use(Router);
@@ -113,8 +114,13 @@ const router = new Router({
             ]
           },
           {
-            path: '/constructionPlan', //建设规划
+            path: '/constructionPlan', //建设规划选择
             component: constructionPlan,
+            meta: { requireLogin: true }
+          },
+          {
+            path: '/constructionChart',
+            component: constructionChart,
             meta: { requireLogin: true }
           },
 

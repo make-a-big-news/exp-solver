@@ -1,44 +1,61 @@
 <template>
   <div>
-  <topMenu></topMenu>
-  <mainPage>
-    <template slot="breadcrumb">
-      <li class="active">共享拼车</li>
-    </template>
+    <topMenu></topMenu>
+    <mainPage>
+      <template slot="breadcrumb">
+        <li class="active">共享拼车</li>
+      </template>
 
-    <template slot="main">
-      <div class="container">
-        <div class="form-group label-floating">
-          <h4>运输目的地</h4>
-          <citySelect ></citySelect>
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label" for="focusedInput3">货物量</label>
-          <input class="form-control" id="focusedInput3" type="number" min="10" max="90" step="10" v-model.trim="input.quantity">
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label" for="focusedInput4">开始运输日期</label>
-          <input class="form-control" id="focusedInput4" type="date"
-                 v-model.trim="input.date">
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label" for="focusedInput5">开始运输具体时间</label>
-          <input class="form-control" id="focusedInput5" type="time"
-                 v-model.trim="input.time">
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label" for="focusedInput6">运输需要时间</label>
-          <input class="form-control" id="focusedInput6" type="text" v-model.trim="input.duration">
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" v-model.trim="input.if_vehicle"> &nbsp;是否有车
+      <template slot="main">
+        <div class="container">
+          <div>
+            <h3>请选择：</h3>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="0" v-model="input.rent_want">
+                运输出租
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="1" v-model="input.rent_want">
+                运输租用
+              </label>
+            </div>
+          </div>
+
+          <div class=" label-floating">
+            <h3>运输目的地:</h3>
+            <citySelect></citySelect>
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput3">货物量</label>
+            <input class="form-control" id="focusedInput3" type="number" min="10" max="90" step="10"
+                   v-model.trim="input.quantity">
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput4">开始运输日期</label>
+            <input class="form-control" id="focusedInput4" type="date"
+                   v-model.trim="input.date">
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput5">开始运输具体时间</label>
+            <input class="form-control" id="focusedInput5" type="time"
+                   v-model.trim="input.time">
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput6">运输需要时间</label>
+            <input class="form-control" id="focusedInput6" type="text" v-model.trim="input.duration">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" v-model.trim="input.if_vehicle"> &nbsp;是否有车
                     </label>
-          <a class="btn btn-raised btn-primary" style="float: right;" @click="submit">提交</a>
+            <a class="btn btn-raised btn-primary" style="float: right;" @click="submit">提交</a>
+          </div>
         </div>
-      </div>
-    </template>
-  </mainPage>
+      </template>
+    </mainPage>
   </div>
 </template>
 
@@ -62,13 +79,15 @@
           date: '',
           time: '',
           duration: '',
-          if_vehicle: ''
+          if_vehicle: '',
+          rent_want: '0'
         },
       }
     },
     computed: {
       params(){
         return {
+          rent_want: Number(this.input.rent_want),
           start_time: `${this.input.date} ${this.input.time}:00`,
           duration: Number(this.input.duration),
           quantity: Number(this.input.quantity),
@@ -78,7 +97,7 @@
     },
     methods: {
       submit(){
-        const _this=this;
+        const _this = this;
         transportService.match(this.params).then((rsp) => {
           this.$showDialog({
             title: '成功',
@@ -114,6 +133,12 @@
   .is-focused {
     input::-webkit-datetime-edit-fields-wrapper {
       display: inline-block;
+    }
+  }
+
+  .container {
+    h3 {
+      margin-bottom: 20px;
     }
   }
 

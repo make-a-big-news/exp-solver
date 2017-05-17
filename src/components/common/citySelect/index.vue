@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cascade">
     <select v-model="province" :class="selectClass">
       <option value="">选择省</option>
       <option v-for="province in provinces" :value="province[valueType]">{{province.name}}</option>
@@ -111,7 +111,11 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .cascade{
+select:first-child{
+  margin-right: 20px;
+}
+  }
 
 
 </style>

@@ -9,6 +9,8 @@
     <h1 class="animated infinite rotateOut" v-if="show">欢迎使用Exp-Solver物流智能共享平台</h1>
       <h1  v-else>欢迎使用Exp-Solver物流智能共享平台</h1>
     </div>
+    <!--遮罩-->
+    <div class="s-bgc" v-show="showBgc" ></div>
     <router-view></router-view>
 
   </div>
@@ -20,15 +22,18 @@
     name: 'login',
     data() {
       return {
-        show: true
+        show: true,
+        showBgc: false
       }
     },
     methods: {
       signIn(){
         this.$router.push('/login/signIn');
+        this.showBgc=true;
       },
       signUp(){
         this.$router.push('/login/signUp');
+        this.showBgc=true;
       }
     },
     mounted(){
@@ -38,9 +43,21 @@
       },1000)
     }
   }
+//  todo: 遮罩关闭bug
 </script>
 
 <style lang="scss" scoped>
+  .s-bgc {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #262626;
+    opacity: .5;
+    z-index: 10;
+  }
+
   .wrapper {
     margin: 0 auto;
     background:{
