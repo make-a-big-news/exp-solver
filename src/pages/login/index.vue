@@ -1,18 +1,16 @@
 <template>
   <div class="wrapper">
     <div class="login">
-    <a class="signIn" @click="signIn">登录</a>
+      <a class="signIn" @click="signIn">登录</a>
       <span>|</span>
       <a class="signUp" @click="signUp">注册</a>
     </div>
     <div class="logo">
-    <h1 class="animated infinite rotateOut" v-if="show">欢迎使用Exp-Solver物流智能共享平台</h1>
-      <h1  v-else>欢迎使用Exp-Solver物流智能共享平台</h1>
+      <h1 class="animated infinite rotateOut" v-if="show">欢迎使用Exp-Solver物流智能共享平台</h1>
+      <h1 v-else>欢迎使用Exp-Solver物流智能共享平台</h1>
     </div>
     <router-view></router-view>
-
   </div>
-
 </template>
 
 <script>
@@ -32,10 +30,10 @@
       }
     },
     mounted(){
-      const _this=this;
-      setTimeout( ()=> {
-        _this.show=false;
-      },1000)
+      const _this = this;
+      setTimeout(() => {
+        _this.show = false;
+      }, 1000)
     }
   }
 </script>
@@ -43,7 +41,7 @@
 <style lang="scss" scoped>
   .wrapper {
     margin: 0 auto;
-    background:{
+    background: {
       image: url("~assets/img/login.jpg");
       repeat: no-repeat;
       size: cover;
@@ -56,26 +54,29 @@
     height: 100%;
     overflow: hidden;
   }
-  .login{
+
+  .login {
     position: absolute;
     right: 0;
-    margin:10px 30px 0 0;
-    a{
+    margin: 10px 30px 0 0;
+    a {
+      cursor: pointer;
       color: black;
       font-size: 1.4em;
     }
-    span{
+    span {
       font-size: 20px;
       margin: 0 6px;
     }
   }
-  .logo{
+
+  .logo {
     display: flex;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    h1{
+    h1 {
       font-weight: 500;
       font-size: 45px;
     }

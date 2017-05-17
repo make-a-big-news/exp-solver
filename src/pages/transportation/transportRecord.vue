@@ -34,8 +34,6 @@
 <script>
   import mainPage from '@/components/common/mainPage';
   import topMenu from '@/components/topMenu';
-  import { transportService } from '@/service';
-
 
   export default {
     name: 'transportRecord',
@@ -51,7 +49,7 @@
     },
     created(){
       // 从服务器拉取数据
-      transportService.listAll().then(rsp => {
+      this.$api.transportService.listAll().then(rsp => {
         this.items = rsp.data;
       })
     }

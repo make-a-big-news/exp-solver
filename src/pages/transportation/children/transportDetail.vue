@@ -30,8 +30,6 @@
 </template>
 
 <script>
-  import { transportService } from '@/service';
-
   export default {
     name: '',
     data() {
@@ -46,7 +44,7 @@
       }
     },
     created(){
-      transportService.getMatched(this.$route.query).then(rsp=>{
+      this.$api.transportService.getMatched(this.$route.query).then(rsp=>{
         this.item=rsp.data;
       })
     }

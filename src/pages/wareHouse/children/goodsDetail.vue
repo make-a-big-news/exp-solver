@@ -30,8 +30,6 @@
 </template>
 
 <script>
-  import { storeService } from '@/service';
-
   export default {
     name: '',
     data() {
@@ -46,8 +44,8 @@
       }
     },
     created(){
-      storeService.getMatched(this.$route.query).then(rsp=>{
-        this.item=rsp.data;
+      this.$api.storeService.getMatched(this.$route.query).then(rsp => {
+        this.item = rsp.data;
       })
     }
   }

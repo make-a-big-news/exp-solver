@@ -40,7 +40,6 @@
 </template>
 
 <script>
-  import { authService } from '@/service';
   export default {
     name: 'signIn',
     data() {
@@ -51,7 +50,7 @@
     },
     methods: {
       signIn(){
-        authService.login({
+        this.$api.authService.login({
           username: this.username,
           password: this.password
         }).then((rsp) => {

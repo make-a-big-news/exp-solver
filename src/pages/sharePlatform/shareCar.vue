@@ -46,7 +46,6 @@
   import mainPage from '@/components/common/mainPage';
   import citySelect from '@/components/common/citySelect';
   import topMenu from '@/components/topMenu';
-  import { transportService } from '@/service';
 
   export default {
     name: 'searchCar',
@@ -79,7 +78,7 @@
     methods: {
       submit(){
         const _this=this;
-        transportService.match(this.params).then((rsp) => {
+        this.$api.transportService.match(this.params).then((rsp) => {
           this.$showDialog({
             title: '成功',
             content: '您的信息已提交，是否跳转至运输管理页面？',

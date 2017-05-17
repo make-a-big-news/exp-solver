@@ -37,7 +37,6 @@
 <script>
   import mainPage from '@/components/common/mainPage';
   import topMenu from '@/components/topMenu';
-  import { storeService } from '@/service';
 
   export default {
     name: 'goodsRecord',
@@ -51,7 +50,7 @@
       }
     },
     created(){
-      storeService.listAll().then(rsp => {
+      this.$api.storeService.listAll().then(rsp => {
         this.items = rsp.data;
       })
     }
