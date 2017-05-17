@@ -13,7 +13,7 @@
           <p>结束时间: {{item.end_time}}</p>
           <p>货物量：{{item.quantity}}</p>
           <p>是否有车：
-              <span v-if="item.if_vehicle===1">有</span>
+            <span v-if="item.if_vehicle===1">有</span>
             <span v-else>无</span>
           </p>
           <p>匹配条目：<span v-for="matchPair in item.matchPairs">{{matchPair + ' '}}</span></p>
@@ -44,8 +44,8 @@
       }
     },
     created(){
-      this.$api.transportService.getMatched(this.$route.query).then(rsp=>{
-        this.item=rsp.data;
+      this.$api.transportService.getMatched(this.$route.query).then(rsp => {
+        this.item = rsp.data;
       })
     }
   }
@@ -53,7 +53,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .modal{
+  .modal {
     display: block;
     &-dialog {
       margin: 150px auto;

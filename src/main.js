@@ -38,6 +38,7 @@ import '../node_modules/bootstrap-material-design/dist/js/material.min';
 import '../node_modules/bootstrap-material-design/dist/js/ripples.min';
 import globalConfig from '@/utils/globalConfig';
 import dialog from '@/utils/dialog';
+import AMap from 'vue-amap';
 import FastClick from 'fastclick'
 
 // if ('addEventListener' in document) {
@@ -51,6 +52,12 @@ Vue.config.productionTip = false;
 // 全局配置 && 插件
 Vue.use(globalConfig);
 Vue.use(dialog);
+Vue.use(AMap);
+
+AMap.initAMapApiLoader({
+  key: '92309e7e93b89bbf7faca7dddac63718',
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor']
+});
 
 /* eslint-disable no-new */
 new Vue({

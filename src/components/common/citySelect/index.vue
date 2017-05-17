@@ -9,8 +9,8 @@
       <option v-for="city in cities" :value="city[valueType]">{{city.name}}</option>
     </select>
     <!--<select v-model="district" :class="selectClass">-->
-      <!--<option value="">选择县/区</option>-->
-      <!--<option v-for="district in districts" :value="district[valueType]">{{district.name}}</option>-->
+    <!--<option value="">选择县/区</option>-->
+    <!--<option v-for="district in districts" :value="district[valueType]">{{district.name}}</option>-->
     <!--</select>-->
     <slot></slot>
   </div>
@@ -22,10 +22,10 @@
   export default {
     props: {
       initProvince: {
-        default: ''
+        default: '重庆市'
       },
       initCity: {
-        default: ''
+        default: '重庆'
       },
       selectClass: {
         type: String,
@@ -84,21 +84,21 @@
         }
         this.oldCity = this.city;
 //        自定义provinceChange事件，并触发
-        this.$emit('provinceChange', seletedItem[0]);
+        this.$emit('update:province', seletedItem[0].name);
       },
       city(){
         let seletedItem = this.cities.filter(function (item) {
           return item[this.valueType] === this.city;
         }.bind(this));
-        if (seletedItem.length) {
-          this.districts = seletedItem[0]['children'];
-          this.district = this.district === this.oldDistrict ? this.districts[0][this.valueType] : this.district;
-        } else {
-          this.district = '';
-          this.districts = [];
-        }
-        this.oldDistrict = this.district;
-        this.$emit('cityChange', seletedItem[0]);
+//        if (seletedItem.length) {
+//          this.districts = seletedItem[0]['children'];
+//          this.district = this.district === this.oldDistrict ? this.districts[0][this.valueType] : this.district;
+//        } else {
+//          this.district = '';
+//          this.districts = [];
+//        }
+//        this.oldDistrict = this.district;
+        this.$emit('update:city', seletedItem[0].name);
       },
       district(){
         let seletedItem = this.districts.filter(function (item) {
@@ -112,7 +112,9 @@
 
 <style lang="scss" scoped>
 
-
+  select {
+    margin-right: 10px;
+  }
 
 </style>
 

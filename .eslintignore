@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 src/**
 index.html
+/src/utils/gaodeMap.js
