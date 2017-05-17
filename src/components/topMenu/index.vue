@@ -116,6 +116,7 @@
     methods: {
       logout(){
         this.$auth.logout();
+        this.$router.push('/login')
       },
       controlNavbar(){
         this.isCtrlBarActive = !this.isCtrlBarActive;

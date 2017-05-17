@@ -55,7 +55,6 @@
       })
     }
   }
-  //TODO: POST 显示所有发布信息/list_storerecords并且还要匹配？？
 </script>
 
 <style lang="scss" scoped>
