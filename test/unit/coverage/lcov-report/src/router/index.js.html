@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/router/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/router/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.26% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/23</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Vue from 'vue';
+import Router from 'vue-router';
+import App from '@/App';
+import auth from '@/utils/auth';
+&nbsp;
+// 按chunk分块
+// 主页
+const homePage = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/homePage')),</span></span> 'homePage');</span></span>
+// 登录注册
+const login = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/login')),</span></span> 'login');</span></span>
+const signUp = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/login/signUp')),</span></span> 'login');</span></span>
+const signIn = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/login/signIn')),</span></span> 'login');</span></span>
+// 共享平台
+const shareDepot = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/sharePlatform/shareDepot')),</span></span> 'sharePlatform');</span></span>
+const shareCar = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/sharePlatform/shareCar')),</span></span> 'sharePlatform');</span></span>
+// 运输管理
+const transportRecord = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/transportation/transportRecord')),</span></span> 'transportation');</span></span>
+const recommendPath = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/transportation/recommendPath')),</span></span> 'transportation');</span></span>
+const upDown = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/transportation/upDown')),</span></span> 'transportation');</span></span>
+const uDplans = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/transportation/uDplans')),</span></span> 'transportation');</span></span>
+const transportDetail = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/transportation/children/transportDetail')),</span></span> 'transportation');</span></span>
+//仓储管理
+const goodsRecord = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/wareHouse/goodsRecord')),</span></span> 'wareHouse');</span></span>
+const constructionPlan = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/wareHouse/constructionPlan')),</span></span> 'wareHouse');</span></span>
+const constructionChart = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/wareHouse/children/constructionChart')),</span></span> 'wareHouse');</span></span>
+const goodsDetail = r =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >require.ensure([], () =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >r(require('@/pages/wareHouse/children/goodsDetail')),</span></span> 'wareHouse');</span></span>
+&nbsp;
+Vue.use(Router);
+&nbsp;
+const router = new Router({
+    routes: [
+      {
+        path: '/',
+        component: App, // 顶层路由，对应index.html
+        children: [  // 二级路由。对应App.vue
+          // 地址为空时跳转主页面
+          {
+            path: '',
+            redirect: '/login'
+          },
+          // 登录注册
+          {
+            path: '/login',
+            component: login,
+            children: [
+              {
+                path: 'signIn',
+                component: signIn
+              },
+              {
+                path: 'signUp',
+                component: signUp
+              }
+            ]
+          },
+          // 主页
+          {
+            path: '/homePage',
+            component: homePage
+          },
+          // 共享平台
+          {
+            path: '/shareCar',//共享拼车
+            component: shareCar,
+            meta: { requireLogin: true }
+          },
+          {
+            path: '/shareDepot',//共享拼仓
+            component: shareDepot,
+            meta: { requireLogin: true }
+          },
+&nbsp;
+          // 运输管理
+          {
+            path: '/transportRecord',//运输记录
+            component: transportRecord,
+            meta: { requireLogin: true },
+            children: [
+              {
+                path: 'transportDetail',
+                component: transportDetail,
+                meta: { requireLogin: true }
+              }
+            ]
+          },
+          {
+            path: '/recommendPath', //推荐路径
+            component: recommendPath,
+            meta: { requireLogin: true }
+          },
+          {
+            path: '/upDown', //往返综合业务
+            component: upDown,
+            meta: { requireLogin: true }
+          },
+          {
+            path: '/uDplans',
+            component: uDplans,//推荐方案
+            meta: { requireLogin: true }
+          }
+          ,
+&nbsp;
+          // 仓储管理
+          {
+            path: '/goodsRecord', //货物记录
+            component: goodsRecord,
+            meta: { requireLogin: true },
+            children: [
+              {
+                path: 'goodsDetail',
+                component: goodsDetail,
+                meta: { requireLogin: true }
+              }
+            ]
+          },
+          {
+            path: '/constructionPlan', //建设规划选择
+            component: constructionPlan,
+            meta: { requireLogin: true }
+          },
+          {
+            path: '/constructionChart',
+            component: constructionChart,
+            meta: { requireLogin: true }
+          },
+&nbsp;
+        ]
+      },
+    ],
+    mode: 'hash',
+    strict: process.env.NODE_ENV !== 'production'
+  })
+;
+&nbsp;
+router.beforeEach((to, from, next) =&gt; <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >  if (to.matched.some(record =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >record.meta.requireLogin)</span></span>) {</span>
+    // 如果这个页面要求登录，则检查是否登录了
+    // 如果未登录，则跳转到登录页面
+<span class="cstat-no" title="statement not covered" >    if (!auth.checkIfLoggedIn()) {// TODO: 保存上一次请求的url，登陆后直接跳转过去</span>
+<span class="cstat-no" title="statement not covered" >      next({</span>
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+<span class="cstat-no" title="statement not covered" >      next()</span>
+    }
+  } else {
+<span class="cstat-no" title="statement not covered" >    next()</span>
+  }
+});
+&nbsp;
+export default router;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 24 2017 00:10:46 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
