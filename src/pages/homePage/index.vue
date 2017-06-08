@@ -16,7 +16,7 @@
             <img src="~assets/img/global2.jpg">
           </div>
           <div class="item">
-            <img src="~assets/img/global3.jpg">
+            <img src="~assets/img/global3.jpg"><!-- TODO:这张图需要压缩-->
           </div>
         </div>
       </div>

@@ -50,15 +50,17 @@
     },
     methods: {
       signIn(){
-        this.$api.authService.login({
-          username: this.username,
-          password: this.password
-        }).then((rsp) => {
-          this.$auth.login();
-          this.$router.push("/homePage");
-        }).catch((e) => {
-          alert("账号密码错误，请重新输入");
-        })
+//        this.$api.authService.login({
+//          username: this.username,
+//          password: this.password
+//        }).then((rsp) => {
+//          this.$auth.login();
+//          this.$router.push("/homePage");
+//        }).catch((e) => {
+//          alert("账号密码错误，请重新输入");
+//        })
+        this.$auth.login();
+        this.$router.push("/homePage");
       },
       signUp(){
         this.$router.push("/login/signUp");
