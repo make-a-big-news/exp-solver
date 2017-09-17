@@ -8,16 +8,10 @@ import { baseURL } from '@/config';
 import MockAdapter from 'axios-mock-adapter';
 import intercepter from '../mock';
 
-const baseUrl = 'http://162.243.154.46:8000/';
-const goMock = 0;
+// const baseUrl = 'http://162.243.154.46:8000/';
+const baseUrl = 'http://rapapi.org/mockjsdata/25969'
 
 axios.defaults.baseURL = baseUrl;
-
-if (process.env.NODE_ENV === 'development' && goMock === 1) {
-  const mock = new MockAdapter(axios);
-  intercepter(mock);
-}
-
 
 export const storeService = {
   match: (params) => {

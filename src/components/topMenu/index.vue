@@ -20,8 +20,8 @@
                 <li>
                   <router-link to="/goodsRecord">拼仓记录(免费)</router-link>
                 </li>
-                <li><a>压力预测(免费)</a></li>
-                <li><a>推荐管理(免费)</a></li>
+                <li><a class="disabled">压力预测(免费)</a></li>
+                <li><a class="disabled">推荐管理(免费)</a></li>
                 <li>
                   <router-link to="/constructionPlan">建设规划(付费)</router-link>
                 </li>
@@ -34,14 +34,14 @@
                 <li>
                   <router-link to="/transportRecord">拼车记录(免费)</router-link>
                 </li>
-                <li><a>车辆调配(免费)</a></li>
+                <li><a class="disabled">车辆调配(免费)</a></li>
                 <li>
                   <router-link to="/recommendPath">推荐路径(免费)</router-link>
                 </li>
                 <li>
                   <router-link to="/upDown">往返综合业务(免费)</router-link>
                 </li>
-                <li><a>未来规划(付费)</a></li>
+                <li><a class="disabled">未来规划(付费)</a></li>
                 <li class="divider"></li>
               </ul>
             </li>
@@ -60,14 +60,14 @@
             <li>
               <a class="btn" data-toggle="dropdown">韧曦金服</a>
               <ul class="dropdown-menu" @click="controlNavbar">
-                <li><a>尊贵VIP</a></li>
-                <li><a>信用花呗</a></li>
-                <li><a>提现转账</a></li>
-                <li><a>积分兑换</a></li>
-                <li><a>我的钱包</a></li>
-                <li><a>保险理财</a></li>
-                <li><a>推荐工具</a></li>
-                <li><a>附近服务</a></li>
+                <li><a class="disabled">尊贵VIP</a></li>
+                <li><a class="disabled">信用花呗</a></li>
+                <li><a class="disabled">提现转账</a></li>
+                <li><a class="disabled">积分兑换</a></li>
+                <li><a class="disabled">我的钱包</a></li>
+                <li><a class="disabled">保险理财</a></li>
+                <li><a class="disabled">推荐工具</a></li>
+                <li><a class="disabled">附近服务</a></li>
                 <li class="divider"></li>
               </ul>
             </li>
@@ -77,9 +77,9 @@
             <li v-if="hasLogin">
               <a class="btn" data-toggle="dropdown">账号设置</a>
               <ul class="dropdown-menu" @click="controlNavbar">
-                <li><a>我的订单</a></li>
-                <li><a>账户管理</a></li>
-                <li><a>用户认证</a></li>
+                <li><a class="disabled">我的订单</a></li>
+                <li><a class="disabled">账户管理</a></li>
+                <li><a class="disabled">用户认证</a></li>
                 <li class="divider"></li>
                 <li><a @click="logout">退出登录</a></li>
               </ul>
@@ -200,6 +200,12 @@
       a {
         text-indent: 5px;
         text-align: center;
+        &.disabled{
+          color: #949090;
+          &:hover{
+            color: #949090 !important;
+          }
+        }
         &:hover {
           color: #009688 !important;
         }

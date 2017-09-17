@@ -45,7 +45,7 @@
     },
     data() {
       return {
-        footTips: '欢迎使用Exp-Solver物流智能共享平台'
+        footTips: '欢迎使用Exp-solver智能物流平台'
       }
     },
     mounted(){

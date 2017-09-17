@@ -10,11 +10,11 @@
         <div class="container">
           <div class=" label-floating">
             <h4>运输起点:</h4>
-            <citySelect ></citySelect>
+            <citySelect></citySelect>
           </div>
           <div class=" label-floating">
             <h4>运输终点:</h4>
-            <citySelect ></citySelect>
+            <citySelect></citySelect>
           </div>
           <div class=" label-floating">
             <h4>车辆型号:</h4>
@@ -37,18 +37,18 @@
           <div class="form-group label-floating">
             <label class="control-label" for="focusedInput5">发货具体时间</label>
             <input class="form-control" id="focusedInput5" type="time"
-                   v-model.lazy.trim="input.time">
+                   v-model.lazy.trim="input.time1">
           </div>
           <div class="form-group label-floating">
             <label class="control-label" for="focusedInput6">返程时间</label>
             <input class="form-control" id="focusedInput6" type="time"
-                   v-model.lazy.trim="input.time">
+                   v-model.lazy.trim="input.time2">
           </div>
           <div class="form-group label-floating">
             <label class="control-label" for="focusedInput7">等待时间</label>
             <input class="form-control" id="focusedInput7" type="text" v-model.lazy.trim="input.duration">
           </div>
-            <router-link class="btn btn-raised btn-primary" style="float: right;" to="/uDplans">提交</router-link>
+          <router-link class="btn btn-raised btn-primary" style="float: right;" to="/uDplans">提交</router-link>
         </div>
       </template>
     </mainPage>
@@ -61,7 +61,7 @@
   import topMenu from '@/components/topMenu'
 
   export default {
-    name: 'searchCar',
+    name: 'backtogo',
     components: {
       mainPage,
       citySelect,
@@ -72,7 +72,8 @@
         input: {
           quantity: '',
           date: '',
-          time: '',
+          time1: '',
+          time2: '',
           duration: ''
         }
       }
@@ -96,6 +97,7 @@
       display: inline-block;
     }
   }
+
   .container {
     h4 {
       margin-bottom: 20px;
