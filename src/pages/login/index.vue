@@ -6,8 +6,8 @@
       <a class="signUp" @click="signUp">注册</a>
     </div>
     <div class="logo">
-      <h1 class="animated infinite rotateOut" v-if="show">欢迎使用Exp-solver智能物流平台</h1>
-      <h1 v-else>欢迎使用Exp-solver智能物流平台</h1>
+      <h1 class="animated infinite rotateOut" v-if="show">欢迎使用“e米滴答”社区O2O物流平台</h1>
+      <h1 v-else>欢迎使用“e米滴答”社区O2O物流平台</h1>
     </div>
     <!--遮罩-->
     <div class="s-bgc" v-show="showBgc" ></div>

@@ -45,7 +45,7 @@
     },
     data() {
       return {
-        footTips: '欢迎使用Exp-solver智能物流平台'
+        footTips: '欢迎使用“e米滴答”社区O2O物流平台'
       }
     },
     mounted(){
